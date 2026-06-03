@@ -32,7 +32,7 @@ const CSS = `
 :root{
   --bg:#080808; --s1:#0f0f0f; --s2:#161616;
   --b:rgba(255,255,255,0.07); --b2:rgba(255,255,255,0.13);
-  --t:#f0ece4; --t2:rgba(240,236,228,0.48); --t3:rgba(240,236,228,0.24); --t4:rgba(240,236,228,0.10);
+  --t:#f0ece4; --t2:rgba(240,236,228,0.55); --t3:rgba(240,236,228,0.38); --t4:rgba(240,236,228,0.16);
   --a:#ff5e00;
   --mono: "SF Mono","Fira Mono","Courier New",monospace;
 }
@@ -74,9 +74,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .mobile-nav-links{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:1}
 .mobile-nav-links a{font-size:clamp(32px,8vw,56px);font-weight:800;letter-spacing:-1.5px;color:var(--t);line-height:1.1;transition:color .2s}
 .mobile-nav-links a:hover{color:var(--a)}
-.mobile-nav-links a.eyebrow-link{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:24px;letter-spacing:.12em}
-.mobile-nav-cta{margin-top:48px;position:relative;z-index:1}
-.mobile-nav-cta .btn-ghost-nav{display:inline-block;font-size:14px;padding:11px 20px}
+.mobile-nav-links a.eyebrow-link{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:24px}
+.mobile-nav-cta{margin-top:40px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px}
+.mobile-nav-cta .btn-primary-mob{background:var(--a);color:#fff;font-weight:700;font-size:15px;padding:12px 28px;border-radius:5px;display:inline-block;box-shadow:0 8px 24px -12px rgba(255,94,0,.6)}
+.mobile-nav-cta .btn-ghost-nav{display:inline-block;font-size:13px;padding:9px 18px}
 .mobile-overlay .overlay-foot{position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--b);padding:20px 0}
 .mobile-overlay .overlay-foot-inner{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 48px}
 @media (max-width:640px){.mobile-overlay .overlay-foot-inner{padding:0 22px}}
@@ -85,10 +86,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero{min-height:calc(100vh - 64px);display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden;padding-top:64px}
 .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--b) 1px,transparent 1px),linear-gradient(90deg,var(--b) 1px,transparent 1px);background-size:80px 80px;opacity:.4;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,black,transparent);mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,black,transparent)}
 .hero-top{display:flex;flex-direction:column;justify-content:center;padding:20px 0 12px;position:relative;z-index:1}
-.hero h1{font-weight:900;font-size:clamp(80px,12vw,180px);letter-spacing:-5px;line-height:.95;color:var(--t)}
-.hero .mom{font-weight:900;font-size:clamp(56px,8.5vw,128px);letter-spacing:-4px;line-height:.95;color:var(--a);display:block}
-.hero .philo{margin-top:16px;font-weight:700;font-size:clamp(16px,2vw,24px);color:var(--t2);letter-spacing:-0.4px}
-.hero-bottom{border-top:1px solid var(--b);padding:16px 0 28px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;position:relative;z-index:1}
+.hero h1{font-weight:900;font-size:clamp(64px,9.5vw,148px);letter-spacing:-4px;line-height:.95;color:var(--t)}
+.hero .mom{font-weight:900;font-size:clamp(64px,9.5vw,148px);letter-spacing:-4px;line-height:.95;color:var(--a);display:block}
+.hero .philo{margin-top:20px;font-weight:700;font-size:clamp(15px,1.8vw,21px);color:var(--t3);letter-spacing:-0.3px}
+.hero-bottom{border-top:1px solid var(--b);padding:20px 0 32px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;position:relative;z-index:1}
+.hero-left{display:flex;flex-direction:column;gap:14px}
+.hero-marginnote{font-size:13px;color:var(--t3);font-style:italic;line-height:1.6;padding-left:12px;border-left:2px solid rgba(255,255,255,0.12)}
 .hero-bottom .body{font-size:15px;color:var(--t2);line-height:1.72;max-width:460px}
 .hero-cta{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
 .hero-cta .row{display:flex;gap:10px}
@@ -111,9 +114,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .fade-up.in{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
+/* MANIFESTO */
+.manifesto{background:var(--s1);border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:72px 0}
+.manifesto-inner{max-width:720px;margin:0 auto;text-align:left}
+.manifesto h2{font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-1.2px;color:var(--t);line-height:1.1}
+.manifesto p{margin-top:20px;font-size:16px;color:var(--t2);line-height:1.78}
+.manifesto .close{margin-top:24px;font-size:16px;font-weight:600;color:var(--t);line-height:1.6}
+
 /* TICKER */
 .ticker{height:32px;border-top:1px solid var(--b);border-bottom:1px solid var(--b);overflow:hidden;display:flex;align-items:center;position:relative}
-.ticker-track{display:flex;gap:0;animation:tick 45s linear infinite;white-space:nowrap;padding-left:0}
+.ticker-track{display:flex;gap:0;animation:tick 30s linear infinite;white-space:nowrap;padding-left:0}
 .ticker:hover .ticker-track{animation-play-state:paused}
 .ticker-item{font-family:var(--mono);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);padding:0 18px;display:inline-flex;align-items:center}
 .ticker-sep{color:var(--t4);font-family:var(--mono);font-size:11px}
@@ -126,13 +136,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .proof-item{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--t2);padding:0 18px;border-left:1px solid var(--b);transition:color .2s}
 .proof-item:hover{color:var(--t)}
 @media (max-width:768px){.proof-inner{justify-content:flex-start}.proof-item{padding:0 12px;font-size:11px}}
-
-/* MANIFESTO */
-.manifesto{background:var(--s1);border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:72px 0}
-.manifesto-inner{max-width:720px;margin:0 auto;text-align:left}
-.manifesto h2{font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-1.2px;color:var(--t);line-height:1.1}
-.manifesto p{margin-top:20px;font-size:16px;color:var(--t2);line-height:1.78}
-.manifesto .close{margin-top:24px;font-size:16px;font-weight:600;color:var(--t);line-height:1.6}
 
 /* Section common */
 section.std{padding:72px 0;background:var(--bg)}
@@ -162,28 +165,22 @@ section.std{padding:72px 0;background:var(--bg)}
 .step-close{font-weight:600;color:var(--t);margin-top:auto;padding-top:20px;font-size:14px;line-height:1.55}
 @media (max-width:720px){.process-grid{grid-template-columns:1fr;margin-top:32px}.process-grid > div{padding:28px 0;border-right:none;border-bottom:1px solid var(--b)}.process-grid > div:last-child{border-bottom:none;padding-bottom:32px}.step-idx{margin-bottom:14px}.step-close{padding-top:18px}}
 
-/* WORK */
-.work{background:var(--s1);border-top:1px solid var(--b);padding:72px 0}
-.work-grid{margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b);border:1px solid var(--b)}
-.work-card{background:var(--s1);padding:44px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;position:relative;transition:background .2s;cursor:pointer}
-.work-card:hover{background:var(--s2)}
-.work-top{display:flex;justify-content:space-between;align-items:flex-start}
-.work-num{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.08em}
-.work-pill{font-family:var(--mono);font-size:10px;color:var(--t3);border:1px solid var(--b);border-radius:100px;padding:4px 10px;letter-spacing:.08em}
-.work-bottom{padding-top:48px}
-.work-cat{font-family:var(--mono);font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-.work-title{font-size:20px;font-weight:700;letter-spacing:-0.4px;color:var(--t2);line-height:1.2;margin-bottom:10px;transition:color .2s}
-.work-card:hover .work-title{color:var(--t)}
-.work-desc{font-size:13px;color:var(--t3);line-height:1.6;max-width:90%}
-.work-arrow{position:absolute;bottom:44px;right:44px;color:var(--t4);transition:color .2s,transform .2s;font-size:18px}
-.work-card:hover .work-arrow{color:var(--a);transform:translate(3px,-3px)}
-@media (max-width:640px){.work-grid{grid-template-columns:1fr}}
+/* CAPABILITIES */
+.capabilities{background:var(--s1);border-top:1px solid var(--b);padding:72px 0}
+.cap-grid{margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b);border:1px solid var(--b)}
+.cap-card{background:var(--s1);padding:44px;min-height:260px;display:flex;flex-direction:column;transition:background .2s}
+.cap-card:hover{background:var(--s2)}
+.cap-num{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.08em;margin-bottom:28px}
+.cap-title{font-size:20px;font-weight:700;letter-spacing:-0.4px;color:var(--t);line-height:1.2;margin-bottom:14px}
+.cap-desc{font-size:14px;color:var(--t2);line-height:1.72;max-width:92%}
+@media (max-width:640px){.cap-grid{grid-template-columns:1fr}.cap-card{padding:32px}}
 
 /* FOUNDER */
 .founder{background:var(--bg);border-top:1px solid var(--b);padding:72px 0}
 .founder-grid{margin-top:44px;display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start;border-top:1px solid var(--b);padding-top:36px}
 .f-card{border:1px solid var(--b);padding:32px;background:var(--s1);display:flex;flex-direction:column;gap:6px}
-.f-letter{font-weight:900;font-size:56px;color:var(--a);letter-spacing:-2px;line-height:1;margin-bottom:18px}
+.f-monogram{width:56px;height:56px;border:1px solid var(--b2);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0}
+.f-monogram span{font-weight:900;font-size:20px;letter-spacing:-1px;color:var(--a);font-family:"Inter",system-ui,sans-serif}
 .f-name{font-size:19px;font-weight:700;letter-spacing:-0.4px;color:var(--t)}
 .f-role{font-size:13px;color:var(--t3);margin-bottom:18px;margin-top:2px}
 .f-tags{font-family:var(--mono);font-size:11px;color:var(--t3);padding-top:18px;border-top:1px solid var(--b);letter-spacing:.04em}
@@ -199,9 +196,26 @@ section.std{padding:72px 0;background:var(--bg)}
 .cta h2{font-weight:900;font-size:clamp(42px,6.5vw,84px);letter-spacing:-3px;color:var(--t);line-height:.98}
 .cta h2 .mom{color:var(--a);display:block}
 .cta .csub{max-width:380px;margin:24px auto 40px;font-size:15px;color:var(--t2);line-height:1.72}
+.cta-buttons{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 .cta .btn-primary{font-size:15px;padding:13px 28px}
-.cta .footnote{margin-top:24px;font-size:13px;color:var(--t3)}
+.cta .btn-ghost{font-size:14px;padding:12px 22px}
+.cta .footnote{margin-top:28px;font-size:13px;color:var(--t3)}
 .cta .footnote a{color:var(--t2);text-decoration:underline;text-underline-offset:3px}
+
+/* TRY BEFORE YOU BUY */
+.tbuyb{background:var(--bg);border-top:1px solid var(--b);padding:72px 0}
+.tbuyb-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;border-top:1px solid var(--b);padding-top:44px;margin-top:44px}
+.tbuyb-left .tbuyb-h{font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-1px;color:var(--t);line-height:1.05;margin-bottom:20px}
+.tbuyb-left p{font-size:15px;color:var(--t2);line-height:1.78;margin-bottom:14px}
+.tbuyb-right{border:1px solid var(--b);background:var(--s1);padding:36px}
+.tbuyb-offer{display:flex;flex-direction:column;gap:16px}
+.tbuyb-item{display:flex;gap:14px;align-items:flex-start}
+.tbuyb-dot{width:6px;height:6px;border-radius:50%;background:var(--a);margin-top:6px;flex-shrink:0}
+.tbuyb-item p{font-size:14px;color:var(--t2);line-height:1.68;margin:0}
+.tbuyb-cta{margin-top:28px;padding-top:24px;border-top:1px solid var(--b)}
+.tbuyb-cta p{font-size:13px;color:var(--t3);margin-bottom:16px;font-style:italic;line-height:1.6}
+@media (max-width:768px){.tbuyb-inner{grid-template-columns:1fr;gap:32px}}
+@media (max-width:640px){.tbuyb-right{padding:24px}}
 
 /* FOOTER */
 footer{border-top:1px solid var(--b);padding:36px 0}
@@ -210,8 +224,99 @@ footer{border-top:1px solid var(--b);padding:36px 0}
 .foot-c a{font-size:12px;color:var(--t3);transition:color .2s}
 .foot-c a:hover{color:var(--t2)}
 .foot-r{text-align:right;font-family:var(--mono);font-size:11px;color:var(--t4);line-height:1.6}
+.foot-r a{color:var(--t3);transition:color .2s;text-decoration:none}
+.foot-r a:hover{color:var(--t2)}
 @media (max-width:640px){.foot-r{text-align:left}}
 `;
+
+const TICKER_ITEMS = [
+  "MVPs",
+  "Prototypes",
+  "Landing Pages",
+  "Web Apps",
+  "AI Workflows",
+  "Dashboards",
+  "Ship Fast. Build Smarter.",
+];
+
+const SECTORS = [
+  "Fintech",
+  "SaaS",
+  "Creative & Media",
+  "E-Commerce",
+  "Professional Services",
+  "Consumer Apps",
+];
+
+const OUTCOMES = [
+  {
+    idx: "01",
+    prob: "I need to test if this idea is worth building.",
+    svcs: ["Product Strategy", "MVP Scoping", "Technical Discovery", "Rapid Prototyping", "Market Validation"],
+  },
+  {
+    idx: "02",
+    prob: "I need something tangible to show users, investors or my team.",
+    svcs: ["UX & UI Design", "Branding", "Visual Identity", "Design Systems", "Interactive Prototypes"],
+  },
+  {
+    idx: "03",
+    prob: "I need a working product live in the hands of users.",
+    svcs: ["Websites", "Web Applications", "AI-Enabled Tools", "Dashboards", "Internal Tools"],
+  },
+  {
+    idx: "04",
+    prob: "I need to do more with what I've already built.",
+    svcs: ["Workflow Automation", "API Integrations", "AI Implementation", "Database Design", "Process Engineering"],
+  },
+];
+
+const PROCESS_STEPS = [
+  {
+    idx: "01 — BRIEF",
+    h: "Understand the problem",
+    body: "We start with a conversation, not a form. You tell us what you're trying to achieve. We ask the right questions and find the real problem fast.",
+    close: "We find the real problem before a line of code is written.",
+  },
+  {
+    idx: "02 — BUILD",
+    h: "Move quickly and visibly",
+    body: "We use AI-native tooling and a lean build process to move faster than any traditional agency. You see working output in days — not Jira tickets and weekly standups.",
+    close: "You see progress in days, not monthly status reports.",
+  },
+  {
+    idx: "03 — SHIP",
+    h: "Launch with momentum",
+    body: "We deploy and hand over cleanly. You own everything — code, assets, infrastructure. We make sure you can operate what we've built.",
+    close: "No lock-in. No ongoing dependency unless you want one.",
+  },
+];
+
+const CAPABILITIES = [
+  {
+    n: "01",
+    title: "MVPs & Prototypes",
+    desc: "Turn your idea into something testable. We scope, design and build an early version of your product fast — so you can put something real in front of users, not just a deck.",
+  },
+  {
+    n: "02",
+    title: "Websites & Landing Pages",
+    desc: "From zero to live in days. Fast, clean, conversion-ready sites that look like you mean business — without the agency timeline or the agency price tag.",
+  },
+  {
+    n: "03",
+    title: "Internal Tools & Dashboards",
+    desc: "Replace the spreadsheets. We build custom tools for ops, data and reporting that your team will actually use — without the enterprise software price.",
+  },
+  {
+    n: "04",
+    title: "AI Workflows & Automations",
+    desc: "Put AI to work inside your business. We design and build automations that save time, cut manual effort and give your team real leverage.",
+  },
+];
+
+const CALENDLY_URL = "https://calendly.com/luke-sprintlabs/30min";
+const CTA_EMAIL = "mailto:luke@sprintlabs.uk?subject=Sprint%20Labs%20enquiry";
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -226,18 +331,16 @@ function Index() {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    // hero load animation
     const heroEls: Array<[string, number]> = [
-      ["hero-build", 80],
-      ["hero-mom", 280],
-      ["hero-philo", 380],
-      ["hero-bottom", 560],
+      ["hero-h1", 80],
+      ["hero-mom", 220],
+      ["hero-philo", 340],
+      ["hero-bottom", 500],
     ];
     const timers = heroEls.map(([id, ms]) =>
       window.setTimeout(() => document.getElementById(id)?.classList.add("in"), ms),
     );
 
-    // intersection observer
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -264,38 +367,18 @@ function Index() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
-  const tickerItems = [
-    "Product Strategy",
-    "MVP Scoping",
-    "UX & UI Design",
-    "Branding",
-    "Visual Identity",
-    "Web Applications",
-    "AI Tools",
-    "Workflow Automation",
-    "Dashboard Design",
-    "Database Design",
-    "Product Roadmapping",
-    "Ship Fast. Build Smarter.",
-  ];
-  const tickerLoop = [...tickerItems, ...tickerItems];
-
-  const sectors = [
-    "Fintech",
-    "SaaS",
-    "Creative & Media",
-    "E-Commerce",
-    "Professional Services",
-    "Consumer Apps",
-  ];
+  const tickerLoop = [...TICKER_ITEMS, ...TICKER_ITEMS];
 
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
+      {/* NAV */}
       <nav className="nav" id="nav">
         <div className="wrap nav-inner">
           <a href="#" className="wordmark" onClick={() => setMenuOpen(false)}>
@@ -303,16 +386,16 @@ function Index() {
           </a>
           <div className="nav-links">
             <a href="#outcomes">Services</a>
-            <a href="#work">Work</a>
+            <a href="#capabilities">Work</a>
             <a href="#founder">Studio</a>
           </div>
-          <a href="mailto:hello@sprintlabs.uk" className="btn-ghost-nav">
-            Start a Sprint →
+          <a href={CALENDLY_URL} className="btn-ghost-nav" target="_blank" rel="noopener noreferrer">
+            Book free discovery call
           </a>
           <button
             className={`menu-btn ${menuOpen ? "open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
             <span />
@@ -322,35 +405,40 @@ function Index() {
         </div>
       </nav>
 
-      <div className={`mobile-overlay ${menuOpen ? "open" : ""}`}>
+      {/* MOBILE OVERLAY */}
+      <div className={`mobile-overlay ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
         <div className="overlay-grid" />
         <div className="mobile-nav-links">
           <a href="#outcomes" className="eyebrow-link" onClick={() => setMenuOpen(false)}>Services</a>
-          <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#capabilities" onClick={() => setMenuOpen(false)}>Work</a>
           <a href="#founder" onClick={() => setMenuOpen(false)}>Studio</a>
-          <a href="mailto:hello@sprintlabs.uk" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a href={CTA_EMAIL} onClick={() => setMenuOpen(false)}>Contact</a>
         </div>
         <div className="mobile-nav-cta">
-          <a href="mailto:hello@sprintlabs.uk" className="btn-ghost-nav" onClick={() => setMenuOpen(false)}>
-            Start a Sprint →
+          <a href={CALENDLY_URL} className="btn-primary-mob" onClick={() => setMenuOpen(false)} target="_blank" rel="noopener noreferrer">
+            Book free discovery call
+          </a>
+          <a href={CTA_EMAIL} className="btn-ghost-nav" onClick={() => setMenuOpen(false)}>
+            Talk through an idea
           </a>
         </div>
         <div className="overlay-foot">
           <div className="overlay-foot-inner">
             <span className="wordmark">Sprint<span className="a">Labs.</span></span>
-            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--t4)' }}>London, UK</span>
+            <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--t4)" }}>London, UK</span>
           </div>
         </div>
       </div>
 
+      {/* HERO */}
       <header className="hero">
         <div className="hero-grid-bg" />
         <div className="wrap hero-top">
-          <h1 id="hero-build" className="fade-up hero-fade">
-            BUILD
+          <h1 id="hero-h1" className="fade-up hero-fade">
+            From idea to
           </h1>
           <span id="hero-mom" className="mom fade-up hero-fade">
-            momentum.
+            live product.
           </span>
           <p id="hero-philo" className="philo fade-up hero-fade">
             Ideas are easy. Execution is everything.
@@ -358,17 +446,22 @@ function Index() {
         </div>
         <div className="wrap">
           <div id="hero-bottom" className="hero-bottom fade-up hero-fade">
-            <p className="body">
-              Sprint Labs is an AI-native product studio. We help founders, startups and innovation
-              teams turn ideas into working products — in weeks, not quarters.
-            </p>
+            <div className="hero-left">
+              <p className="hero-marginnote">
+                Most agencies were built to protect their margins. Sprint Labs was built to ship your product.
+              </p>
+              <p className="body">
+                Sprint Labs is an AI-native product studio helping founders, startups and product
+                teams turn ideas into working products — in weeks, not quarters.
+              </p>
+            </div>
             <div className="hero-cta">
               <div className="row">
-                <a href="mailto:hello@sprintlabs.uk" className="btn-primary">
-                  Start a Sprint →
+                <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+                  Book free discovery call
                 </a>
-                <a href="#process" className="btn-ghost">
-                  See how we work ↓
+                <a href={CTA_EMAIL} className="btn-ghost">
+                  Talk through an idea
                 </a>
               </div>
               <div className="note">No spec needed. Just an idea.</div>
@@ -377,30 +470,7 @@ function Index() {
         </div>
       </header>
 
-      <div className="ticker">
-        <div className="ticker-track">
-          {tickerLoop.map((item, i) => (
-            <span key={i} className="ticker-item">
-              {item}
-              <span className="ticker-sep" style={{ marginLeft: 18 }}>
-                ·
-              </span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="proof">
-        <div className="wrap proof-inner">
-          <span className="proof-label">SECTORS</span>
-          {sectors.map((s) => (
-            <span key={s} className="proof-item">
-              {s}
-            </span>
-          ))}
-        </div>
-      </div>
-
+      {/* MANIFESTO — moved directly after hero */}
       <section className="manifesto">
         <div className="wrap manifesto-inner fade-up">
           <h2>Most products don't fail for lack of ideas.</h2>
@@ -414,63 +484,40 @@ function Index() {
         </div>
       </section>
 
+      {/* TICKER */}
+      <div className="ticker" aria-hidden="true">
+        <div className="ticker-track">
+          {tickerLoop.map((item, i) => (
+            <span key={i} className="ticker-item">
+              {item}
+              <span className="ticker-sep" style={{ marginLeft: 18 }}>·</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* SECTORS */}
+      <div className="proof">
+        <div className="wrap proof-inner">
+          <span className="proof-label">SECTORS</span>
+          {SECTORS.map((s) => (
+            <span key={s} className="proof-item">{s}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* SERVICES */}
       <section className="std" id="outcomes">
         <div className="wrap">
           <div className="fade-up">
             <div className="eyebrow">WHAT WE DO</div>
             <h2 className="h2">Pick your starting point.</h2>
             <p className="sub">
-              Every founder's starting point is different. These are the four most common entry
-              points.
+              Every founder's starting point is different. These are the four most common entry points.
             </p>
           </div>
           <div className="outcomes-grid">
-            {[
-              {
-                idx: "01",
-                prob: "I need to test if this idea is worth building.",
-                svcs: [
-                  "Product Strategy",
-                  "MVP Scoping",
-                  "Technical Discovery",
-                  "Rapid Prototyping",
-                  "Market Validation",
-                ],
-              },
-              {
-                idx: "02",
-                prob: "I need something tangible to show users, investors or my team.",
-                svcs: [
-                  "UX & UI Design",
-                  "Branding",
-                  "Visual Identity",
-                  "Design Systems",
-                  "Interactive Prototypes",
-                ],
-              },
-              {
-                idx: "03",
-                prob: "I need a working product live in the hands of users.",
-                svcs: [
-                  "Websites",
-                  "Web Applications",
-                  "AI-Enabled Tools",
-                  "Dashboards",
-                  "Internal Tools",
-                ],
-              },
-              {
-                idx: "04",
-                prob: "I need to do more with what I've already built.",
-                svcs: [
-                  "Workflow Automation",
-                  "Database Design",
-                  "API Integrations",
-                  "AI Implementation",
-                  "Process Engineering",
-                ],
-              },
-            ].map((c, i) => (
+            {OUTCOMES.map((c, i) => (
               <div key={c.idx} className={`fade-up d${(i % 4) + 1}`}>
                 <div className="out-idx">{c.idx}</div>
                 <div className="out-prob">{c.prob}</div>
@@ -485,6 +532,7 @@ function Index() {
         </div>
       </section>
 
+      {/* PROCESS */}
       <section className="std" id="process">
         <div className="wrap">
           <div className="fade-up">
@@ -496,26 +544,7 @@ function Index() {
             </p>
           </div>
           <div className="process-grid">
-            {[
-              {
-                idx: "01 — BRIEF",
-                h: "Understand the problem",
-                body: "We start with a conversation, not a form. You tell us what you're trying to achieve. We ask the right questions and find the real problem fast.",
-                close: "We find the real problem before a line of code is written.",
-              },
-              {
-                idx: "02 — BUILD",
-                h: "Move quickly and visibly",
-                body: "We use AI-native tooling and a lean build process to move faster than any traditional agency. You see working output in days — not Jira tickets and weekly standups.",
-                close: "You see progress in days, not monthly status reports.",
-              },
-              {
-                idx: "03 — SHIP",
-                h: "Launch with momentum",
-                body: "We deploy, hand over cleanly and make sure you can operate what we've built. You own everything — code, assets, infrastructure.",
-                close: "No lock-in. No ongoing dependency unless you want one.",
-              },
-            ].map((s, i) => (
+            {PROCESS_STEPS.map((s, i) => (
               <div key={s.idx} className={`fade-up d${i + 1}`}>
                 <div className="step-idx">{s.idx}</div>
                 <div className="step-h">{s.h}</div>
@@ -527,59 +556,84 @@ function Index() {
         </div>
       </section>
 
-      <section className="work" id="work">
+      {/* TRY BEFORE YOU BUY */}
+      <section className="tbuyb" id="try">
         <div className="wrap">
           <div className="fade-up">
-            <div className="eyebrow">SELECTED WORK</div>
-            <h2 className="h2">Built with intention.</h2>
+            <div className="eyebrow">LOW RISK START</div>
+          </div>
+          <div className="tbuyb-inner fade-up">
+            <div className="tbuyb-left">
+              <h2 className="tbuyb-h">Try before you buy.</h2>
+              <p>
+                Not sure whether your idea is worth pursuing? Before committing to a project, I'll
+                build a lightweight prototype of your idea free of charge.
+              </p>
+              <p>
+                No lengthy proposal process. No commitment. No obligation.
+              </p>
+              <p>
+                The goal is simple: give you something tangible to react to, test and evaluate
+                before deciding whether to invest further.
+              </p>
+              <p>
+                If the prototype helps clarify the opportunity, we can discuss the next step
+                together. If not, you've still gained insight without spending a penny.
+              </p>
+            </div>
+            <div className="tbuyb-right">
+              <div className="tbuyb-offer">
+                <div className="tbuyb-item">
+                  <div className="tbuyb-dot" />
+                  <p>A working prototype built around your specific idea — not a generic demo.</p>
+                </div>
+                <div className="tbuyb-item">
+                  <div className="tbuyb-dot" />
+                  <p>Delivered fast. Usually within a week of our first conversation.</p>
+                </div>
+                <div className="tbuyb-item">
+                  <div className="tbuyb-dot" />
+                  <p>No contract, no invoice, no commitment required to receive it.</p>
+                </div>
+                <div className="tbuyb-item">
+                  <div className="tbuyb-dot" />
+                  <p>You keep the prototype and any insight it generates, regardless of what you decide next.</p>
+                </div>
+              </div>
+              <div className="tbuyb-cta">
+                <p>Book a free 30-minute call and we'll figure out if this makes sense for your idea.</p>
+                <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+                  Book free discovery call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CAPABILITIES */}
+      <section className="capabilities" id="capabilities">
+        <div className="wrap">
+          <div className="fade-up">
+            <div className="eyebrow">CAPABILITIES</div>
+            <h2 className="h2">What we can build.</h2>
             <p className="sub">
-              A growing portfolio of products, platforms and tools — from idea to launch.
+              Four areas where we take an idea from zero to working product — fast.
             </p>
           </div>
-          <div className="work-grid">
-            {[
-              {
-                n: "001",
-                cat: "Platform / Media",
-                t: "Media Catalog Platform",
-                d: "A full-stack media management tool built for a creative production company.",
-              },
-              {
-                n: "002",
-                cat: "Brand / Investor",
-                t: "Investor Intelligence Deck",
-                d: "End-to-end brand, design and interactive deck for a financial media company.",
-              },
-              {
-                n: "003",
-                cat: "E-Commerce / Fashion",
-                t: "Editorial Storefront",
-                d: "An editorial Shopify storefront for an independent fashion and leather goods label.",
-              },
-              {
-                n: "004",
-                cat: "App / Consumer",
-                t: "Digital Memory Archive",
-                d: "A private platform for preserving family history and personal legacy.",
-              },
-            ].map((c, i) => (
-              <div key={c.n} className={`work-card fade-up d${(i % 4) + 1}`}>
-                <div className="work-top">
-                  <span className="work-num">{c.n}</span>
-                  <span className="work-pill">IN BUILD</span>
-                </div>
-                <div className="work-bottom">
-                  <div className="work-cat">{c.cat}</div>
-                  <div className="work-title">{c.t}</div>
-                  <div className="work-desc">{c.d}</div>
-                </div>
-                <span className="work-arrow">↗</span>
+          <div className="cap-grid">
+            {CAPABILITIES.map((c, i) => (
+              <div key={c.n} className={`cap-card fade-up d${(i % 4) + 1}`}>
+                <div className="cap-num">{c.n}</div>
+                <div className="cap-title">{c.title}</div>
+                <div className="cap-desc">{c.desc}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* FOUNDER */}
       <section className="founder" id="founder">
         <div className="wrap">
           <div className="fade-up">
@@ -587,7 +641,9 @@ function Index() {
           </div>
           <div className="founder-grid fade-up">
             <div className="f-card">
-              <div className="f-letter">L</div>
+              <div className="f-monogram">
+                <span>SL</span>
+              </div>
               <div className="f-name">Luke</div>
               <div className="f-role">Founder, Sprint Labs</div>
               <div className="f-tags">SaaS · Fintech · Product · Sales · AI Dev</div>
@@ -615,6 +671,7 @@ function Index() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="cta">
         <div className="wrap cta-inner fade-up">
           <div className="cta-eyebrow">START A SPRINT</div>
@@ -623,34 +680,47 @@ function Index() {
             <span className="mom">momentum?</span>
           </h2>
           <p className="csub">
-            Tell us what you're building. We'll come back in 24 hours with a real view on scope,
-            cost and timeline. No deck.
+            Book a free 30-minute discovery call. We'll talk through your idea and give you a real
+            view on what's possible, how long it takes, and what it costs. No deck, no proposal.
           </p>
-          <a href="mailto:hello@sprintlabs.uk" className="btn-primary">
-            Start a Sprint →
-          </a>
+          <div className="cta-buttons">
+            <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+              Book free discovery call
+            </a>
+            <a href={CTA_EMAIL} className="btn-ghost">
+              Talk through an idea
+            </a>
+          </div>
           <div className="footnote">
-            Or reach us at{" "}
-            <a href="mailto:hello@sprintlabs.uk">hello@sprintlabs.uk</a> · London, UK
+            Or email directly:{" "}
+            <a href={CTA_EMAIL}>luke@sprintlabs.uk</a> · London, UK
           </div>
         </div>
       </section>
 
+      {/* FOOTER */}
       <footer>
         <div className="wrap foot">
-          <a href="#" className="wordmark">
-            Sprint<span className="a">Labs.</span>
-          </a>
+          <div>
+            <a href="#" className="wordmark">
+              Sprint<span className="a">Labs.</span>
+            </a>
+            <div style={{ marginTop: 10, fontFamily: "var(--mono)", fontSize: 11, color: "var(--t4)", lineHeight: 1.6 }}>
+              AI-native product studio based in London.
+              <br />
+              <a href={CTA_EMAIL} style={{ color: "var(--t3)", textDecoration: "none" }}>luke@sprintlabs.uk</a>
+            </div>
+          </div>
           <div className="foot-c">
             <a href="#outcomes">Services</a>
-            <a href="#work">Work</a>
+            <a href="#capabilities">Work</a>
             <a href="#founder">Studio</a>
-            <a href="mailto:hello@sprintlabs.uk">Contact</a>
+            <a href={CTA_EMAIL}>Contact</a>
           </div>
           <div className="foot-r">
-            Sprint Labs Ltd · Company No. [XXXXXXXX]
+            © {new Date().getFullYear()} Sprint Labs Ltd
             <br />
-            sprintlabs.uk — © 2025
+            London, UK
           </div>
         </div>
       </footer>
