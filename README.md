@@ -65,7 +65,7 @@ sprintlabs.uk
 |---|---|
 | Framework preset | Other |
 | Build command | `npm run build` |
-| Output directory | `.output` |
+| Output directory | `.vercel/output` |
 | Install command | `npm install` |
 | Node.js version | 20.x (or latest LTS) |
 
