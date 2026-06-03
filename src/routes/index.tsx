@@ -160,7 +160,7 @@ section.std{padding:72px 0;background:var(--bg)}
 .step-h{font-size:19px;font-weight:700;letter-spacing:-0.4px;color:var(--t);margin-bottom:14px}
 .step-body{font-size:14px;color:var(--t2);line-height:1.7}
 .step-close{font-weight:600;color:var(--t);margin-top:auto;padding-top:20px;font-size:14px;line-height:1.55}
-@media (max-width:720px){.process-grid{grid-template-columns:1fr}.process-grid > div{border-right:none;border-bottom:1px solid var(--b)}.process-grid > div:last-child{border-bottom:none}}
+@media (max-width:720px){.process-grid{grid-template-columns:1fr;margin-top:32px}.process-grid > div{padding:28px 24px;border-right:none;border-bottom:1px solid var(--b)}.process-grid > div:last-child{border-bottom:none}.step-idx{margin-bottom:16px}}
 
 /* WORK */
 .work{background:var(--s1);border-top:1px solid var(--b);padding:72px 0}
