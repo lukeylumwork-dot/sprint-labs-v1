@@ -110,7 +110,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
 /* TICKER */
-.ticker{height:40px;border-top:1px solid var(--b);border-bottom:1px solid var(--b);overflow:hidden;display:flex;align-items:center;position:relative}
+.ticker{height:32px;border-top:1px solid var(--b);border-bottom:1px solid var(--b);overflow:hidden;display:flex;align-items:center;position:relative}
 .ticker-track{display:flex;gap:0;animation:tick 45s linear infinite;white-space:nowrap;padding-left:0}
 .ticker:hover .ticker-track{animation-play-state:paused}
 .ticker-item{font-family:var(--mono);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);padding:0 18px;display:inline-flex;align-items:center}
