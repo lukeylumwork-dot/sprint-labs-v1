@@ -97,9 +97,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .btn-ghost{background:transparent;border:1px solid var(--b2);color:var(--t);font-weight:600;font-size:14px;padding:11px 18px;border-radius:5px;transition:all .2s;display:inline-block}
 .btn-ghost:hover{border-color:rgba(255,255,255,0.28);background:rgba(255,255,255,0.03)}
 .hero-cta .note{font-family:var(--mono);font-size:12px;color:var(--t3)}
-@media (max-width:640px){
-  .hero-bottom{grid-template-columns:1fr}
+@media (max-width:768px){
+  .hero-bottom{grid-template-columns:1fr;gap:24px}
   .hero-cta{align-items:flex-start}
+}
+@media (max-width:640px){
   .hero-cta .row{flex-direction:column;width:100%}
   .btn-primary,.btn-ghost{text-align:center}
 }
@@ -158,7 +160,7 @@ section.std{padding:72px 0;background:var(--bg)}
 .step-h{font-size:19px;font-weight:700;letter-spacing:-0.4px;color:var(--t);margin-bottom:14px}
 .step-body{font-size:14px;color:var(--t2);line-height:1.7}
 .step-close{font-weight:600;color:var(--t);margin-top:auto;padding-top:20px;font-size:14px;line-height:1.55}
-@media (max-width:720px){.process-grid{grid-template-columns:1fr}.process-grid > div{border-right:none;border-bottom:1px solid var(--b)}.process-grid > div:last-child{border-bottom:none}}
+@media (max-width:720px){.process-grid{grid-template-columns:1fr;margin-top:32px}.process-grid > div{padding:28px 24px;border-right:none;border-bottom:1px solid var(--b)}.process-grid > div:last-child{border-bottom:none}.step-idx{margin-bottom:16px}}
 
 /* WORK */
 .work{background:var(--s1);border-top:1px solid var(--b);padding:72px 0}
@@ -188,7 +190,7 @@ section.std{padding:72px 0;background:var(--bg)}
 .f-quote{border-left:2px solid var(--a);padding-left:22px;margin-bottom:28px;font-size:clamp(18px,2.3vw,25px);font-weight:700;letter-spacing:-0.6px;line-height:1.3;color:var(--t)}
 .f-body p{font-size:15px;color:var(--t2);line-height:1.78;margin-bottom:18px}
 .f-sig{font-size:14px;font-style:italic;color:var(--t3);margin-top:20px}
-@media (max-width:820px){.founder-grid{grid-template-columns:1fr;gap:32px}}
+@media (max-width:768px){.founder-grid{grid-template-columns:1fr;gap:32px;padding-top:28px;margin-top:32px}.f-card{padding:24px}}
 
 /* CTA */
 .cta{background:var(--bg);border-top:1px solid var(--b);padding:72px 0;text-align:center}
