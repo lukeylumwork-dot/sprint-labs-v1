@@ -47,7 +47,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .25s ease,backdrop-filter .25s ease,border-color .25s ease;border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(8,8,8,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--b)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.wordmark{font-weight:700;font-size:14px;letter-spacing:-0.3px;color:var(--t)}
+.wordmark{font-weight:700;font-size:16px;letter-spacing:-0.4px;color:var(--t)}
 .wordmark .a{color:var(--a)}
 .nav-links{display:flex;gap:32px}
 .nav-links a{font-size:13px;color:var(--t3);transition:color .2s}
