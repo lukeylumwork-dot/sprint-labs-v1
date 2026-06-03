@@ -202,6 +202,21 @@ section.std{padding:72px 0;background:var(--bg)}
 .cta .footnote{margin-top:28px;font-size:13px;color:var(--t3)}
 .cta .footnote a{color:var(--t2);text-decoration:underline;text-underline-offset:3px}
 
+/* TRY BEFORE YOU BUY */
+.tbuyb{background:var(--bg);border-top:1px solid var(--b);padding:72px 0}
+.tbuyb-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;border-top:1px solid var(--b);padding-top:44px;margin-top:44px}
+.tbuyb-left .tbuyb-h{font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-1px;color:var(--t);line-height:1.05;margin-bottom:20px}
+.tbuyb-left p{font-size:15px;color:var(--t2);line-height:1.78;margin-bottom:14px}
+.tbuyb-right{border:1px solid var(--b);background:var(--s1);padding:36px}
+.tbuyb-offer{display:flex;flex-direction:column;gap:16px}
+.tbuyb-item{display:flex;gap:14px;align-items:flex-start}
+.tbuyb-dot{width:6px;height:6px;border-radius:50%;background:var(--a);margin-top:6px;flex-shrink:0}
+.tbuyb-item p{font-size:14px;color:var(--t2);line-height:1.68;margin:0}
+.tbuyb-cta{margin-top:28px;padding-top:24px;border-top:1px solid var(--b)}
+.tbuyb-cta p{font-size:13px;color:var(--t3);margin-bottom:16px;font-style:italic;line-height:1.6}
+@media (max-width:768px){.tbuyb-inner{grid-template-columns:1fr;gap:32px}}
+@media (max-width:640px){.tbuyb-right{padding:24px}}
+
 /* FOOTER */
 footer{border-top:1px solid var(--b);padding:36px 0}
 .foot{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
@@ -209,6 +224,8 @@ footer{border-top:1px solid var(--b);padding:36px 0}
 .foot-c a{font-size:12px;color:var(--t3);transition:color .2s}
 .foot-c a:hover{color:var(--t2)}
 .foot-r{text-align:right;font-family:var(--mono);font-size:11px;color:var(--t4);line-height:1.6}
+.foot-r a{color:var(--t3);transition:color .2s;text-decoration:none}
+.foot-r a:hover{color:var(--t2)}
 @media (max-width:640px){.foot-r{text-align:left}}
 `;
 
@@ -298,7 +315,8 @@ const CAPABILITIES = [
   },
 ];
 
-const CTA_EMAIL = "mailto:hello@sprintlabs.uk";
+const CALENDLY_URL = "https://calendly.com/luke-sprintlabs/30min";
+const CTA_EMAIL = "mailto:luke@sprintlabs.uk?subject=Sprint%20Labs%20enquiry";
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -371,8 +389,8 @@ function Index() {
             <a href="#capabilities">Work</a>
             <a href="#founder">Studio</a>
           </div>
-          <a href={CTA_EMAIL} className="btn-ghost-nav">
-            Start a Sprint →
+          <a href={CALENDLY_URL} className="btn-ghost-nav" target="_blank" rel="noopener noreferrer">
+            Book free discovery call
           </a>
           <button
             className={`menu-btn ${menuOpen ? "open" : ""}`}
@@ -397,8 +415,8 @@ function Index() {
           <a href={CTA_EMAIL} onClick={() => setMenuOpen(false)}>Contact</a>
         </div>
         <div className="mobile-nav-cta">
-          <a href={CTA_EMAIL} className="btn-primary-mob" onClick={() => setMenuOpen(false)}>
-            Start a Sprint →
+          <a href={CALENDLY_URL} className="btn-primary-mob" onClick={() => setMenuOpen(false)} target="_blank" rel="noopener noreferrer">
+            Book free discovery call
           </a>
           <a href={CTA_EMAIL} className="btn-ghost-nav" onClick={() => setMenuOpen(false)}>
             Talk through an idea
@@ -439,11 +457,11 @@ function Index() {
             </div>
             <div className="hero-cta">
               <div className="row">
-                <a href={CTA_EMAIL} className="btn-primary">
-                  Start a Sprint →
+                <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+                  Book free discovery call
                 </a>
-                <a href="#process" className="btn-ghost">
-                  See how we work ↓
+                <a href={CTA_EMAIL} className="btn-ghost">
+                  Talk through an idea
                 </a>
               </div>
               <div className="note">No spec needed. Just an idea.</div>
@@ -538,6 +556,61 @@ function Index() {
         </div>
       </section>
 
+      {/* TRY BEFORE YOU BUY */}
+      <section className="tbuyb" id="try">
+        <div className="wrap">
+          <div className="fade-up">
+            <div className="eyebrow">LOW RISK START</div>
+          </div>
+          <div className="tbuyb-inner fade-up">
+            <div className="tbuyb-left">
+              <h2 className="tbuyb-h">Try before you buy.</h2>
+              <p>
+                Not sure whether your idea is worth pursuing? Before committing to a project, I'll
+                build a lightweight prototype of your idea free of charge.
+              </p>
+              <p>
+                No lengthy proposal process. No commitment. No obligation.
+              </p>
+              <p>
+                The goal is simple: give you something tangible to react to, test and evaluate
+                before deciding whether to invest further.
+              </p>
+              <p>
+                If the prototype helps clarify the opportunity, we can discuss the next step
+                together. If not, you've still gained insight without spending a penny.
+              </p>
+            </div>
+            <div className="tbuyb-right">
+              <div className="tbuyb-offer">
+                <div className="tbuyb-item">
+                  <div className="tbuyb-dot" />
+                  <p>A working prototype built around your specific idea — not a generic demo.</p>
+                </div>
+                <div className="tbuyb-item">
+                  <div className="tbuyb-dot" />
+                  <p>Delivered fast. Usually within a week of our first conversation.</p>
+                </div>
+                <div className="tbuyb-item">
+                  <div className="tbuyb-dot" />
+                  <p>No contract, no invoice, no commitment required to receive it.</p>
+                </div>
+                <div className="tbuyb-item">
+                  <div className="tbuyb-dot" />
+                  <p>You keep the prototype and any insight it generates, regardless of what you decide next.</p>
+                </div>
+              </div>
+              <div className="tbuyb-cta">
+                <p>Book a free 30-minute call and we'll figure out if this makes sense for your idea.</p>
+                <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+                  Book free discovery call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CAPABILITIES */}
       <section className="capabilities" id="capabilities">
         <div className="wrap">
@@ -607,20 +680,20 @@ function Index() {
             <span className="mom">momentum?</span>
           </h2>
           <p className="csub">
-            Tell us what you're building. We'll come back in 24 hours with a real view on scope,
-            cost and timeline. No deck.
+            Book a free 30-minute discovery call. We'll talk through your idea and give you a real
+            view on what's possible, how long it takes, and what it costs. No deck, no proposal.
           </p>
           <div className="cta-buttons">
-            <a href={CTA_EMAIL} className="btn-primary">
-              Start a Sprint →
+            <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+              Book free discovery call
             </a>
             <a href={CTA_EMAIL} className="btn-ghost">
               Talk through an idea
             </a>
           </div>
           <div className="footnote">
-            Or reach us at{" "}
-            <a href={CTA_EMAIL}>hello@sprintlabs.uk</a> · London, UK
+            Or email directly:{" "}
+            <a href={CTA_EMAIL}>luke@sprintlabs.uk</a> · London, UK
           </div>
         </div>
       </section>
@@ -628,9 +701,16 @@ function Index() {
       {/* FOOTER */}
       <footer>
         <div className="wrap foot">
-          <a href="#" className="wordmark">
-            Sprint<span className="a">Labs.</span>
-          </a>
+          <div>
+            <a href="#" className="wordmark">
+              Sprint<span className="a">Labs.</span>
+            </a>
+            <div style={{ marginTop: 10, fontFamily: "var(--mono)", fontSize: 11, color: "var(--t4)", lineHeight: 1.6 }}>
+              AI-native product studio based in London.
+              <br />
+              <a href={CTA_EMAIL} style={{ color: "var(--t3)", textDecoration: "none" }}>luke@sprintlabs.uk</a>
+            </div>
+          </div>
           <div className="foot-c">
             <a href="#outcomes">Services</a>
             <a href="#capabilities">Work</a>
@@ -638,7 +718,7 @@ function Index() {
             <a href={CTA_EMAIL}>Contact</a>
           </div>
           <div className="foot-r">
-            sprintlabs.uk — © {new Date().getFullYear()}
+            © {new Date().getFullYear()} Sprint Labs Ltd
             <br />
             London, UK
           </div>
