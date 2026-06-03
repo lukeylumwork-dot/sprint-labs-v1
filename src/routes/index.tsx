@@ -190,7 +190,7 @@ section.std{padding:72px 0;background:var(--bg)}
 .f-quote{border-left:2px solid var(--a);padding-left:22px;margin-bottom:28px;font-size:clamp(18px,2.3vw,25px);font-weight:700;letter-spacing:-0.6px;line-height:1.3;color:var(--t)}
 .f-body p{font-size:15px;color:var(--t2);line-height:1.78;margin-bottom:18px}
 .f-sig{font-size:14px;font-style:italic;color:var(--t3);margin-top:20px}
-@media (max-width:820px){.founder-grid{grid-template-columns:1fr;gap:32px}}
+@media (max-width:768px){.founder-grid{grid-template-columns:1fr;gap:32px;padding-top:28px;margin-top:32px}.f-card{padding:24px}}
 
 /* CTA */
 .cta{background:var(--bg);border-top:1px solid var(--b);padding:72px 0;text-align:center}
