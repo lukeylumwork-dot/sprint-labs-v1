@@ -179,8 +179,8 @@ section.std{padding:72px 0;background:var(--bg)}
 
 /* FOUNDER */
 .founder{background:var(--bg);border-top:1px solid var(--b);padding:72px 0}
-.founder-grid{margin-top:40px;display:grid;grid-template-columns:240px 1fr;gap:64px;align-items:start;border-top:1px solid var(--b);padding-top:40px}
-.f-card{border:1px solid var(--b);padding:28px;background:var(--s1);display:flex;flex-direction:column;gap:6px}
+.founder-grid{margin-top:44px;display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start;border-top:1px solid var(--b);padding-top:36px}
+.f-card{border:1px solid var(--b);padding:32px;background:var(--s1);display:flex;flex-direction:column;gap:6px}
 .f-letter{font-weight:900;font-size:56px;color:var(--a);letter-spacing:-2px;line-height:1;margin-bottom:18px}
 .f-name{font-size:19px;font-weight:700;letter-spacing:-0.4px;color:var(--t)}
 .f-role{font-size:13px;color:var(--t3);margin-bottom:18px;margin-top:2px}
