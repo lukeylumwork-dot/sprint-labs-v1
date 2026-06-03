@@ -294,7 +294,7 @@ function Index() {
 
       <nav className="nav" id="nav">
         <div className="wrap nav-inner">
-          <a href="#" className="wordmark">
+          <a href="#" className="wordmark" onClick={() => setMenuOpen(false)}>
             Sprint<span className="a">Labs.</span>
           </a>
           <div className="nav-links">
@@ -305,8 +305,39 @@ function Index() {
           <a href="mailto:hello@sprintlabs.uk" className="btn-ghost-nav">
             Start a Sprint →
           </a>
+          <button
+            className={`menu-btn ${menuOpen ? "open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </nav>
+
+      <div className={`mobile-overlay ${menuOpen ? "open" : ""}`}>
+        <div className="overlay-grid" />
+        <div className="mobile-nav-links">
+          <a href="#outcomes" className="eyebrow-link" onClick={() => setMenuOpen(false)}>Services</a>
+          <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#founder" onClick={() => setMenuOpen(false)}>Studio</a>
+          <a href="mailto:hello@sprintlabs.uk" onClick={() => setMenuOpen(false)}>Contact</a>
+        </div>
+        <div className="mobile-nav-cta">
+          <a href="mailto:hello@sprintlabs.uk" className="btn-ghost-nav" onClick={() => setMenuOpen(false)}>
+            Start a Sprint →
+          </a>
+        </div>
+        <div className="overlay-foot">
+          <div className="overlay-foot-inner">
+            <span className="wordmark">Sprint<span className="a">Labs.</span></span>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--t4)' }}>London, UK</span>
+          </div>
+        </div>
+      </div>
 
       <header className="hero">
         <div className="hero-grid-bg" />
