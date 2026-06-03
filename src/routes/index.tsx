@@ -82,9 +82,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 @media (max-width:640px){.mobile-overlay .overlay-foot-inner{padding:0 22px}}
 
 /* HERO */
-.hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden;padding-top:64px}
+.hero{min-height:calc(100vh - 64px);display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden;padding-top:64px}
 .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--b) 1px,transparent 1px),linear-gradient(90deg,var(--b) 1px,transparent 1px);background-size:80px 80px;opacity:.4;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,black,transparent);mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,black,transparent)}
-.hero-top{display:flex;flex-direction:column;justify-content:flex-end;padding:48px 0;position:relative;z-index:1}
+.hero-top{display:flex;flex-direction:column;justify-content:center;padding:64px 0 32px;position:relative;z-index:1}
 .hero h1{font-weight:900;font-size:clamp(80px,12vw,180px);letter-spacing:-5px;line-height:.95;color:var(--t)}
 .hero .mom{font-weight:900;font-size:clamp(56px,8.5vw,128px);letter-spacing:-4px;line-height:.95;color:var(--a);display:block}
 .hero .philo{margin-top:28px;font-weight:700;font-size:clamp(16px,2vw,24px);color:var(--t2);letter-spacing:-0.4px}
