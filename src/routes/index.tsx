@@ -223,7 +223,7 @@ function Index() {
     onScroll();
 
     // hero load animation
-    const heroEls = [
+    const heroEls: Array<[string, number]> = [
       ["hero-build", 80],
       ["hero-mom", 280],
       ["hero-philo", 380],
