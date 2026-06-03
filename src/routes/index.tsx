@@ -118,11 +118,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* PROOF */
-.proof{padding:18px 0;border-bottom:1px solid var(--b);background:var(--bg)}
-.proof-inner{display:flex;align-items:center;flex-wrap:wrap}
-.proof-label{font-family:var(--mono);font-size:10px;color:var(--t4);letter-spacing:.12em;text-transform:uppercase;padding-right:16px}
-.proof-item{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--t3);padding:0 16px;border-left:1px solid var(--b)}
-.proof-item:first-of-type{border-left:1px solid var(--b)}
+.proof{padding:14px 0;border-bottom:1px solid var(--b);background:var(--bg)}
+.proof-inner{display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.proof-label{font-family:var(--mono);font-size:10px;color:var(--t4);letter-spacing:.14em;text-transform:uppercase;padding-right:20px}
+.proof-item{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--t2);padding:0 18px;border-left:1px solid var(--b);transition:color .2s}
+.proof-item:hover{color:var(--t)}
+@media (max-width:768px){.proof-inner{justify-content:flex-start}.proof-item{padding:0 12px;font-size:11px}}
 
 /* MANIFESTO */
 .manifesto{background:var(--s1);border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:72px 0}
