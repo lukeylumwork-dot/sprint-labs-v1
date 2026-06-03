@@ -97,9 +97,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .btn-ghost{background:transparent;border:1px solid var(--b2);color:var(--t);font-weight:600;font-size:14px;padding:11px 18px;border-radius:5px;transition:all .2s;display:inline-block}
 .btn-ghost:hover{border-color:rgba(255,255,255,0.28);background:rgba(255,255,255,0.03)}
 .hero-cta .note{font-family:var(--mono);font-size:12px;color:var(--t3)}
-@media (max-width:640px){
-  .hero-bottom{grid-template-columns:1fr}
+@media (max-width:768px){
+  .hero-bottom{grid-template-columns:1fr;gap:24px}
   .hero-cta{align-items:flex-start}
+}
+@media (max-width:640px){
   .hero-cta .row{flex-direction:column;width:100%}
   .btn-primary,.btn-ghost{text-align:center}
 }
