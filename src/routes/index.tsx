@@ -92,10 +92,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero-bottom .body{font-size:15px;color:var(--t2);line-height:1.72;max-width:460px}
 .hero-cta{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
 .hero-cta .row{display:flex;gap:10px}
-.btn-primary{background:var(--t);color:var(--bg);font-weight:700;font-size:14px;padding:11px 20px;border-radius:5px;transition:opacity .2s,transform .2s;display:inline-block}
-.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
-.btn-ghost{background:transparent;border:1px solid var(--b);color:var(--t2);font-weight:600;font-size:14px;padding:11px 18px;border-radius:5px;transition:all .2s;display:inline-block}
-.btn-ghost:hover{border-color:var(--b2);color:var(--t)}
+.btn-primary{background:var(--a);color:#fff;font-weight:700;font-size:14px;padding:11px 20px;border-radius:5px;transition:background .2s,transform .2s,box-shadow .2s;display:inline-block;box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 24px -12px rgba(255,94,0,.6)}
+.btn-primary:hover{background:#ff7325;transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,0.1) inset, 0 12px 28px -10px rgba(255,94,0,.7)}
+.btn-ghost{background:transparent;border:1px solid var(--b2);color:var(--t);font-weight:600;font-size:14px;padding:11px 18px;border-radius:5px;transition:all .2s;display:inline-block}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.28);background:rgba(255,255,255,0.03)}
 .hero-cta .note{font-family:var(--mono);font-size:12px;color:var(--t3)}
 @media (max-width:640px){
   .hero-bottom{grid-template-columns:1fr}
