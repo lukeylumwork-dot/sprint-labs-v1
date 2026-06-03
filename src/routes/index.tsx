@@ -584,7 +584,7 @@ function Index() {
             <div className="eyebrow">FROM THE FOUNDER</div>
           </div>
           <div className="founder-grid fade-up">
-            <div>
+            <div className="f-card">
               <div className="f-letter">L</div>
               <div className="f-name">Luke</div>
               <div className="f-role">Founder, Sprint Labs</div>
