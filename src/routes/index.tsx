@@ -210,6 +210,8 @@ footer{border-top:1px solid var(--b);padding:36px 0}
 `;
 
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     const nav = document.getElementById("nav");
     const onScroll = () => {
@@ -221,7 +223,7 @@ function Index() {
     onScroll();
 
     // hero load animation
-    const heroEls: Array<[string, number]> = [
+    const heroEls = [
       ["hero-build", 80],
       ["hero-mom", 280],
       ["hero-philo", 380],
@@ -251,6 +253,15 @@ function Index() {
       io.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   const tickerItems = [
     "Product Strategy",
