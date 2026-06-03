@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -55,6 +55,31 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 @media (max-width:768px){.nav-links{display:none}}
 .btn-ghost-nav{font-size:13px;font-weight:500;color:var(--t);background:transparent;border:1px solid var(--b2);padding:7px 15px;border-radius:5px;transition:all .2s}
 .btn-ghost-nav:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.04)}
+
+/* Mobile hamburger */
+.menu-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:transparent;border:none;cursor:pointer;padding:8px}
+.menu-btn span{display:block;height:1px;background:var(--t);transition:transform .25s ease,opacity .25s ease}
+.menu-btn span:nth-child(1){width:20px}
+.menu-btn span:nth-child(2){width:14px;margin-left:auto}
+.menu-btn span:nth-child(3){width:20px}
+.menu-btn.open span:nth-child(1){transform:translateY(3px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){transform:translateY(-3px) rotate(-45deg)}
+@media (max-width:768px){.menu-btn{display:flex}.btn-ghost-nav{display:none}}
+
+/* Mobile overlay */
+.mobile-overlay{position:fixed;inset:0;z-index:40;background:var(--bg);opacity:0;pointer-events:none;transition:opacity .35s ease;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.mobile-overlay.open{opacity:1;pointer-events:auto}
+.mobile-overlay .overlay-grid{position:absolute;inset:0;background-image:linear-gradient(var(--b) 1px,transparent 1px),linear-gradient(90deg,var(--b) 1px,transparent 1px);background-size:80px 80px;opacity:.3;pointer-events:none}
+.mobile-nav-links{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;z-index:1}
+.mobile-nav-links a{font-size:clamp(32px,8vw,56px);font-weight:800;letter-spacing:-1.5px;color:var(--t);line-height:1.1;transition:color .2s}
+.mobile-nav-links a:hover{color:var(--a)}
+.mobile-nav-links a.eyebrow-link{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:24px;letter-spacing:.12em}
+.mobile-nav-cta{margin-top:48px;position:relative;z-index:1}
+.mobile-nav-cta .btn-ghost-nav{display:inline-block;font-size:14px;padding:11px 20px}
+.mobile-overlay .overlay-foot{position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--b);padding:20px 0}
+.mobile-overlay .overlay-foot-inner{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 48px}
+@media (max-width:640px){.mobile-overlay .overlay-foot-inner{padding:0 22px}}
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden;padding-top:64px}
@@ -185,6 +210,8 @@ footer{border-top:1px solid var(--b);padding:36px 0}
 `;
 
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     const nav = document.getElementById("nav");
     const onScroll = () => {
@@ -227,6 +254,15 @@ function Index() {
     };
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   const tickerItems = [
     "Product Strategy",
     "MVP Scoping",
@@ -258,7 +294,7 @@ function Index() {
 
       <nav className="nav" id="nav">
         <div className="wrap nav-inner">
-          <a href="#" className="wordmark">
+          <a href="#" className="wordmark" onClick={() => setMenuOpen(false)}>
             Sprint<span className="a">Labs.</span>
           </a>
           <div className="nav-links">
@@ -269,8 +305,39 @@ function Index() {
           <a href="mailto:hello@sprintlabs.uk" className="btn-ghost-nav">
             Start a Sprint →
           </a>
+          <button
+            className={`menu-btn ${menuOpen ? "open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </nav>
+
+      <div className={`mobile-overlay ${menuOpen ? "open" : ""}`}>
+        <div className="overlay-grid" />
+        <div className="mobile-nav-links">
+          <a href="#outcomes" className="eyebrow-link" onClick={() => setMenuOpen(false)}>Services</a>
+          <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#founder" onClick={() => setMenuOpen(false)}>Studio</a>
+          <a href="mailto:hello@sprintlabs.uk" onClick={() => setMenuOpen(false)}>Contact</a>
+        </div>
+        <div className="mobile-nav-cta">
+          <a href="mailto:hello@sprintlabs.uk" className="btn-ghost-nav" onClick={() => setMenuOpen(false)}>
+            Start a Sprint →
+          </a>
+        </div>
+        <div className="overlay-foot">
+          <div className="overlay-foot-inner">
+            <span className="wordmark">Sprint<span className="a">Labs.</span></span>
+            <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--t4)' }}>London, UK</span>
+          </div>
+        </div>
+      </div>
 
       <header className="hero">
         <div className="hero-grid-bg" />
