@@ -252,12 +252,24 @@ const OUTCOMES = [
   {
     idx: "01",
     prob: "I need to test if this idea is worth building.",
-    svcs: ["Product Strategy", "MVP Scoping", "Technical Discovery", "Rapid Prototyping", "Market Validation"],
+    svcs: [
+      "Product Strategy",
+      "MVP Scoping",
+      "Technical Discovery",
+      "Rapid Prototyping",
+      "Market Validation",
+    ],
   },
   {
     idx: "02",
     prob: "I need something tangible to show users, investors or my team.",
-    svcs: ["UX & UI Design", "Branding", "Visual Identity", "Design Systems", "Interactive Prototypes"],
+    svcs: [
+      "UX & UI Design",
+      "Branding",
+      "Visual Identity",
+      "Design Systems",
+      "Interactive Prototypes",
+    ],
   },
   {
     idx: "03",
@@ -267,7 +279,13 @@ const OUTCOMES = [
   {
     idx: "04",
     prob: "I need to do more with what I've already built.",
-    svcs: ["Workflow Automation", "API Integrations", "AI Implementation", "Database Design", "Process Engineering"],
+    svcs: [
+      "Workflow Automation",
+      "API Integrations",
+      "AI Implementation",
+      "Database Design",
+      "Process Engineering",
+    ],
   },
 ];
 
@@ -389,7 +407,12 @@ function Index() {
             <a href="#capabilities">Work</a>
             <a href="#founder">Studio</a>
           </div>
-          <a href={CALENDLY_URL} className="btn-ghost-nav" target="_blank" rel="noopener noreferrer">
+          <a
+            href={CALENDLY_URL}
+            className="btn-ghost-nav"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Book free discovery call
           </a>
           <button
@@ -409,13 +432,27 @@ function Index() {
       <div className={`mobile-overlay ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
         <div className="overlay-grid" />
         <div className="mobile-nav-links">
-          <a href="#outcomes" className="eyebrow-link" onClick={() => setMenuOpen(false)}>Services</a>
-          <a href="#capabilities" onClick={() => setMenuOpen(false)}>Work</a>
-          <a href="#founder" onClick={() => setMenuOpen(false)}>Studio</a>
-          <a href={CTA_EMAIL} onClick={() => setMenuOpen(false)}>Contact</a>
+          <a href="#outcomes" className="eyebrow-link" onClick={() => setMenuOpen(false)}>
+            Services
+          </a>
+          <a href="#capabilities" onClick={() => setMenuOpen(false)}>
+            Work
+          </a>
+          <a href="#founder" onClick={() => setMenuOpen(false)}>
+            Studio
+          </a>
+          <a href={CTA_EMAIL} onClick={() => setMenuOpen(false)}>
+            Contact
+          </a>
         </div>
         <div className="mobile-nav-cta">
-          <a href={CALENDLY_URL} className="btn-primary-mob" onClick={() => setMenuOpen(false)} target="_blank" rel="noopener noreferrer">
+          <a
+            href={CALENDLY_URL}
+            className="btn-primary-mob"
+            onClick={() => setMenuOpen(false)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Book free discovery call
           </a>
           <a href={CTA_EMAIL} className="btn-ghost-nav" onClick={() => setMenuOpen(false)}>
@@ -424,8 +461,12 @@ function Index() {
         </div>
         <div className="overlay-foot">
           <div className="overlay-foot-inner">
-            <span className="wordmark">Sprint<span className="a">Labs.</span></span>
-            <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--t4)" }}>London, UK</span>
+            <span className="wordmark">
+              Sprint<span className="a">Labs.</span>
+            </span>
+            <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--t4)" }}>
+              London, UK
+            </span>
           </div>
         </div>
       </div>
@@ -448,7 +489,8 @@ function Index() {
           <div id="hero-bottom" className="hero-bottom fade-up hero-fade">
             <div className="hero-left">
               <p className="hero-marginnote">
-                Most agencies were built to protect their margins. Sprint Labs was built to ship your product.
+                Most agencies were built to protect their margins. Sprint Labs was built to ship
+                your product.
               </p>
               <p className="body">
                 Sprint Labs is an AI-native product studio helping founders, startups and product
@@ -457,7 +499,12 @@ function Index() {
             </div>
             <div className="hero-cta">
               <div className="row">
-                <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={CALENDLY_URL}
+                  className="btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book free discovery call
                 </a>
                 <a href={CTA_EMAIL} className="btn-ghost">
@@ -490,7 +537,9 @@ function Index() {
           {tickerLoop.map((item, i) => (
             <span key={i} className="ticker-item">
               {item}
-              <span className="ticker-sep" style={{ marginLeft: 18 }}>·</span>
+              <span className="ticker-sep" style={{ marginLeft: 18 }}>
+                ·
+              </span>
             </span>
           ))}
         </div>
@@ -501,7 +550,9 @@ function Index() {
         <div className="wrap proof-inner">
           <span className="proof-label">SECTORS</span>
           {SECTORS.map((s) => (
-            <span key={s} className="proof-item">{s}</span>
+            <span key={s} className="proof-item">
+              {s}
+            </span>
           ))}
         </div>
       </div>
@@ -513,7 +564,8 @@ function Index() {
             <div className="eyebrow">WHAT WE DO</div>
             <h2 className="h2">Pick your starting point.</h2>
             <p className="sub">
-              Every founder's starting point is different. These are the four most common entry points.
+              Every founder's starting point is different. These are the four most common entry
+              points.
             </p>
           </div>
           <div className="outcomes-grid">
@@ -569,9 +621,7 @@ function Index() {
                 Not sure whether your idea is worth pursuing? Before committing to a project, I'll
                 build a lightweight prototype of your idea free of charge.
               </p>
-              <p>
-                No lengthy proposal process. No commitment. No obligation.
-              </p>
+              <p>No lengthy proposal process. No commitment. No obligation.</p>
               <p>
                 The goal is simple: give you something tangible to react to, test and evaluate
                 before deciding whether to invest further.
@@ -597,12 +647,22 @@ function Index() {
                 </div>
                 <div className="tbuyb-item">
                   <div className="tbuyb-dot" />
-                  <p>You keep the prototype and any insight it generates, regardless of what you decide next.</p>
+                  <p>
+                    You keep the prototype and any insight it generates, regardless of what you
+                    decide next.
+                  </p>
                 </div>
               </div>
               <div className="tbuyb-cta">
-                <p>Book a free 30-minute call and we'll figure out if this makes sense for your idea.</p>
-                <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+                <p>
+                  Book a free 30-minute call and we'll figure out if this makes sense for your idea.
+                </p>
+                <a
+                  href={CALENDLY_URL}
+                  className="btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book free discovery call
                 </a>
               </div>
@@ -684,7 +744,12 @@ function Index() {
             view on what's possible, how long it takes, and what it costs. No deck, no proposal.
           </p>
           <div className="cta-buttons">
-            <a href={CALENDLY_URL} className="btn-primary" target="_blank" rel="noopener noreferrer">
+            <a
+              href={CALENDLY_URL}
+              className="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Book free discovery call
             </a>
             <a href={CTA_EMAIL} className="btn-ghost">
@@ -692,8 +757,7 @@ function Index() {
             </a>
           </div>
           <div className="footnote">
-            Or email directly:{" "}
-            <a href={CTA_EMAIL}>luke@sprintlabs.uk</a> · London, UK
+            Or email directly: <a href={CTA_EMAIL}>luke@sprintlabs.uk</a> · London, UK
           </div>
         </div>
       </section>
@@ -705,10 +769,20 @@ function Index() {
             <a href="#" className="wordmark">
               Sprint<span className="a">Labs.</span>
             </a>
-            <div style={{ marginTop: 10, fontFamily: "var(--mono)", fontSize: 11, color: "var(--t4)", lineHeight: 1.6 }}>
+            <div
+              style={{
+                marginTop: 10,
+                fontFamily: "var(--mono)",
+                fontSize: 11,
+                color: "var(--t4)",
+                lineHeight: 1.6,
+              }}
+            >
               AI-native product studio based in London.
               <br />
-              <a href={CTA_EMAIL} style={{ color: "var(--t3)", textDecoration: "none" }}>luke@sprintlabs.uk</a>
+              <a href={CTA_EMAIL} style={{ color: "var(--t3)", textDecoration: "none" }}>
+                luke@sprintlabs.uk
+              </a>
             </div>
           </div>
           <div className="foot-c">

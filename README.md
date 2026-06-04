@@ -20,16 +20,16 @@ The dev server runs at `http://localhost:3000`.
 
 ## Tech stack
 
-| Layer | Technology |
-|---|---|
-| Framework | TanStack Start (SSR) |
-| Build tool | Vite + Nitro |
-| Styling | Tailwind CSS v4 + inline CSS variables |
-| Language | TypeScript |
-| Package manager | npm / bun |
-| Hosting | Vercel |
-| Domain & DNS | Cloudflare |
-| Email | Google Workspace |
+| Layer           | Technology                             |
+| --------------- | -------------------------------------- |
+| Framework       | TanStack Start (SSR)                   |
+| Build tool      | Vite + Nitro                           |
+| Styling         | Tailwind CSS v4 + inline CSS variables |
+| Language        | TypeScript                             |
+| Package manager | npm / bun                              |
+| Hosting         | Vercel                                 |
+| Domain & DNS    | Cloudflare                             |
+| Email           | Google Workspace                       |
 
 ---
 
@@ -61,13 +61,13 @@ sprintlabs.uk
 
 #### Build configuration
 
-| Setting | Value |
-|---|---|
-| Framework preset | Other |
-| Build command | `npm run build` |
-| Output directory | `.vercel/output` |
-| Install command | `npm install` |
-| Node.js version | 20.x (or latest LTS) |
+| Setting          | Value                |
+| ---------------- | -------------------- |
+| Framework preset | Other                |
+| Build command    | `npm run build`      |
+| Output directory | `.vercel/output`     |
+| Install command  | `npm install`        |
+| Node.js version  | 20.x (or latest LTS) |
 
 #### Environment variables
 
@@ -96,10 +96,10 @@ After adding the domains, Vercel will display the DNS records you need to enter 
 
 Vercel will provide the exact record values when you add your domain. The typical pattern is:
 
-| Type | Name | Value | Proxy |
-|---|---|---|---|
-| `A` | `@` (apex) | Vercel IP (shown in Vercel dashboard) | **DNS only** ☁️ |
-| `CNAME` | `www` | `cname.vercel-dns.com` | **DNS only** ☁️ |
+| Type    | Name       | Value                                 | Proxy           |
+| ------- | ---------- | ------------------------------------- | --------------- |
+| `A`     | `@` (apex) | Vercel IP (shown in Vercel dashboard) | **DNS only** ☁️ |
+| `CNAME` | `www`      | `cname.vercel-dns.com`                | **DNS only** ☁️ |
 
 > **Important — proxy mode:** Set both records to **DNS only** (grey cloud) initially, not proxied (orange cloud). Vercel handles SSL directly. If Cloudflare proxying is enabled, it can interfere with Vercel's SSL certificate provisioning. Once the site is live and the SSL certificate is confirmed active, you can test proxied mode if needed.
 
@@ -174,12 +174,12 @@ All landing page content, CSS and interactive logic lives in `src/routes/index.t
 
 ## Content constants (index.tsx)
 
-| Constant | Purpose |
-|---|---|
-| `CALENDLY_URL` | Primary CTA destination — Calendly booking link |
-| `CTA_EMAIL` | Secondary CTA — mailto with subject line pre-filled |
-| `TICKER_ITEMS` | Scrolling ticker content |
-| `SECTORS` | Sector list in the proof bar |
-| `OUTCOMES` | Services / entry points cards |
-| `PROCESS_STEPS` | Brief. Build. Ship. steps |
-| `CAPABILITIES` | What we can build cards |
+| Constant        | Purpose                                             |
+| --------------- | --------------------------------------------------- |
+| `CALENDLY_URL`  | Primary CTA destination — Calendly booking link     |
+| `CTA_EMAIL`     | Secondary CTA — mailto with subject line pre-filled |
+| `TICKER_ITEMS`  | Scrolling ticker content                            |
+| `SECTORS`       | Sector list in the proof bar                        |
+| `OUTCOMES`      | Services / entry points cards                       |
+| `PROCESS_STEPS` | Brief. Build. Ship. steps                           |
+| `CAPABILITIES`  | What we can build cards                             |
