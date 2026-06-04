@@ -69,17 +69,13 @@ sprintlabs.uk
 | Install command | `npm install` |
 | Node.js version | 20.x (or latest LTS) |
 
-#### Required environment variable
+#### Environment variables
 
-> **This step is critical.** The project uses Nitro, which defaults to a Cloudflare Workers build target. Without this variable, the Vercel build will produce output that Vercel cannot run.
+No environment variables are required. The Nitro preset (`vercel`) is set directly in `vite.config.ts`.
 
-In the Vercel project settings under **Environment Variables**, add:
+> **If you previously added `NITRO_PRESET` as a Vercel environment variable, delete it.** An env var overrides the config file and `vercel_edge` (the old Nitro v2 name) will cause a build error in Nitro 3.x.
 
-| Name | Value | Environments |
-|---|---|---|
-| `NITRO_PRESET` | `vercel_edge` | Production, Preview, Development |
-
-No other environment variables are required for the current landing page. Do not add API keys, secrets or tokens.
+Do not add API keys, secrets or tokens.
 
 #### Add domains
 

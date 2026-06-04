@@ -13,6 +13,7 @@ export default defineConfig({
     server: { entry: "server" },
   },
   // Force-enable the Nitro deploy plugin outside of Lovable's environment.
-  // Without this, the SSR build is skipped and Vercel has no server to deploy.
-  nitro: true,
+  // preset: "vercel" is required — Nitro 3.x dropped the vercel_edge underscore alias.
+  // Remove any NITRO_PRESET env var from Vercel dashboard; this config takes precedence.
+  nitro: { preset: "vercel" },
 });
