@@ -1,0 +1,5 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sprint Labs">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0F0F0F" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+  <path d="M21 20 L33 32 L21 44" fill="none" stroke="#FF5E00" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M34 20 L46 32 L34 44" fill="none" stroke="#FF5E00" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

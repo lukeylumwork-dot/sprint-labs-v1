@@ -87,10 +87,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@SprintLabs" },
       { name: "twitter:title", content: "Sprint Labs" },
       { name: "twitter:description", content: "Ship Fast. Build Smarter" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1311f04f-f75f-4d2e-bbe0-f1a4477d9376" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1311f04f-f75f-4d2e-bbe0-f1a4477d9376" },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1311f04f-f75f-4d2e-bbe0-f1a4477d9376",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1311f04f-f75f-4d2e-bbe0-f1a4477d9376",
+      },
     ],
     links: [
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       {
         rel: "stylesheet",
         href: appCss,
