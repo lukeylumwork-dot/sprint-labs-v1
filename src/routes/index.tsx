@@ -454,13 +454,13 @@ function Index() {
         <div className="hero-grid-bg" />
         <div className="wrap hero-top">
           <h1 id="hero-h1" className="fade-up hero-fade">
-            From idea to
+            Your idea,
           </h1>
           <span id="hero-mom" className="mom fade-up hero-fade">
-            live product.
+            built in days.
           </span>
           <p id="hero-philo" className="philo fade-up hero-fade">
-            Founder-led product building, powered by AI. Days or weeks — not quarters.
+            Founder-led, AI-native product building. Days or weeks — never quarters.
           </p>
         </div>
         <div className="wrap">
