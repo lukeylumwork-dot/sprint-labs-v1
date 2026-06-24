@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap",
       },
     ],
   }),
@@ -35,7 +35,7 @@ const CSS = `
   --b:rgba(255,255,255,0.07); --b2:rgba(255,255,255,0.13);
   --t:#f0ece4; --t2:rgba(240,236,228,0.55); --t3:rgba(240,236,228,0.38); --t4:rgba(240,236,228,0.16);
   --a:#ff5e00;
-  --mono: "SF Mono","Fira Mono","Courier New",monospace;
+  --mono: "IBM Plex Mono","SF Mono","Fira Mono","Courier New",monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
