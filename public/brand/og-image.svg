@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sprint Labs — AI-native product studio, London">
+  <rect width="1200" height="630" fill="#080808"/>
+  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+  <g transform="translate(100,100)">
+    <rect x="2" y="2" width="92" height="92" rx="20" fill="#0F0F0F" stroke="rgba(255,255,255,0.13)" stroke-width="2"/>
+    <path d="M32 30 L51 48 L32 66" fill="none" stroke="#FF5E00" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M52 30 L71 48 L52 66" fill="none" stroke="#FF5E00" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="100" y="280" font-family="IBM Plex Mono, 'SF Mono', 'Fira Mono', 'Courier New', monospace" font-size="20" letter-spacing="4" fill="#FF5E00">AI-NATIVE PRODUCT STUDIO</text>
+
+  <text x="98" y="370" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="72" font-weight="900" letter-spacing="-2" fill="#F0ECE4">Your idea,</text>
+  <text x="98" y="450" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="72" font-weight="900" letter-spacing="-2" fill="#FF5E00">built in days.</text>
+
+  <text x="100" y="520" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="26" font-weight="500" fill="rgba(240,236,228,0.55)">Founder-led, AI-native product building.</text>
+  <text x="100" y="556" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="26" font-weight="500" fill="rgba(240,236,228,0.55)">Days or weeks — never quarters.</text>
+
+  <text x="1100" y="556" text-anchor="end" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="#F0ECE4">Sprint<tspan fill="#FF5E00">Labs.</tspan></text>
+</svg>

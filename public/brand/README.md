@@ -12,6 +12,7 @@ text, a single orange accent.
 | `sprintlabs-wordmark.svg` | Primary horizontal lockup — icon + "SprintLabs." Use in the nav, headers, email signatures. |
 | `sprintlabs-stacked.svg` | Vertical lockup — icon above the wordmark. Use for square/social/profile placements. |
 | `../favicon.svg` | Browser favicon (same chevron mark). |
+| `og-image.svg` / `og-image.png` | 1200×630 social/OG card (LinkedIn, Twitter/X, Slack previews). PNG is the rendered version served via `og:image`/`twitter:image`. |
 
 The icon doubles as the monogram — the orange brand uses one mark (the forward chevron,
 for speed/sprint), not a separate letterform.

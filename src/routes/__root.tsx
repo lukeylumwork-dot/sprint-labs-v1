@@ -77,25 +77,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sprint Labs" },
-      { name: "description", content: "Ship Fast. Build Smarter" },
+      { title: "Sprint Labs — AI-native product studio, London" },
+      {
+        name: "description",
+        content:
+          "Sprint Labs is an AI-native product studio run by Luke. I help founders, startups, SMEs and product teams turn ideas into working products — in days or weeks, not quarters.",
+      },
       { name: "author", content: "Sprint Labs" },
-      { property: "og:title", content: "Sprint Labs" },
-      { property: "og:description", content: "Ship Fast. Build Smarter" },
+      { property: "og:title", content: "Sprint Labs — AI-native product studio" },
+      {
+        property: "og:description",
+        content:
+          "Founder-led product building, powered by AI. Idea to working product in days or weeks, not quarters.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@SprintLabs" },
-      { name: "twitter:title", content: "Sprint Labs" },
-      { name: "twitter:description", content: "Ship Fast. Build Smarter" },
+      { name: "twitter:title", content: "Sprint Labs — AI-native product studio" },
+      {
+        name: "twitter:description",
+        content:
+          "Founder-led product building, powered by AI. Idea to working product in days or weeks, not quarters.",
+      },
       {
         property: "og:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1311f04f-f75f-4d2e-bbe0-f1a4477d9376",
+        content: "https://sprintlabs.uk/brand/og-image.png",
       },
       {
         name: "twitter:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1311f04f-f75f-4d2e-bbe0-f1a4477d9376",
+        content: "https://sprintlabs.uk/brand/og-image.png",
       },
     ],
     links: [
