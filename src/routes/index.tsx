@@ -239,7 +239,6 @@ const TICKER_ITEMS = [
   "Web Apps",
   "AI Workflows",
   "Dashboards",
-  "Ship fast. Build smarter.",
 ];
 
 const AUDIENCE = [
