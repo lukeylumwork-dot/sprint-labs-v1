@@ -42,6 +42,7 @@ html{scroll-behavior:smooth}
 html,body{background:var(--bg);color:var(--t);font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--a);outline-offset:2px;border-radius:3px}
 .wrap{max-width:1200px;margin:0 auto;padding:0 48px}
 @media (max-width:640px){.wrap{padding:0 22px}}
 
@@ -52,7 +53,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .wordmark{font-weight:700;font-size:16px;letter-spacing:-0.4px;color:var(--t)}
 .wordmark .a{color:var(--a)}
 .nav-links{display:flex;gap:32px}
-.nav-links a{font-size:13px;color:var(--t3);transition:color .2s}
+.nav-links a{font-size:13px;color:var(--t2);transition:color .2s}
 .nav-links a:hover{color:var(--t)}
 @media (max-width:768px){.nav-links{display:none}}
 .btn-ghost-nav{font-size:13px;font-weight:500;color:var(--t);background:transparent;border:1px solid var(--b2);padding:7px 15px;border-radius:5px;transition:all .2s}
@@ -77,7 +78,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .mobile-nav-links a{font-size:clamp(30px,7.5vw,52px);font-weight:800;letter-spacing:-1.5px;color:var(--t);line-height:1.1;transition:color .2s}
 .mobile-nav-links a:hover{color:var(--a)}
 .mobile-nav-cta{margin-top:40px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px}
-.mobile-nav-cta .btn-primary-mob{background:var(--a);color:#fff;font-weight:700;font-size:15px;padding:12px 28px;border-radius:5px;display:inline-block;box-shadow:0 8px 24px -12px rgba(255,94,0,.6)}
+.mobile-nav-cta .btn-primary-mob{background:var(--a);color:var(--bg);font-weight:700;font-size:15px;padding:12px 28px;border-radius:5px;display:inline-block;box-shadow:0 8px 24px -12px rgba(255,94,0,.6)}
 .mobile-nav-cta .btn-ghost-nav{display:inline-block;font-size:13px;padding:9px 18px}
 .mobile-overlay .overlay-foot{position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--b);padding:20px 0}
 .mobile-overlay .overlay-foot-inner{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 48px}
@@ -92,15 +93,15 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero .philo{margin-top:22px;font-weight:700;font-size:clamp(15px,1.8vw,21px);color:var(--t3);letter-spacing:-0.3px}
 .hero-bottom{border-top:1px solid var(--b);padding:20px 0 32px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;position:relative;z-index:1}
 .hero-left{display:flex;flex-direction:column;gap:14px}
-.hero-marginnote{font-size:13px;color:var(--t3);font-style:italic;line-height:1.6;padding-left:12px;border-left:2px solid var(--a)}
+.hero-marginnote{font-size:13px;color:var(--t2);font-style:italic;line-height:1.6;padding-left:12px;border-left:2px solid var(--a)}
 .hero-bottom .body{font-size:15px;color:var(--t2);line-height:1.72;max-width:460px}
 .hero-cta{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
 .hero-cta .row{display:flex;gap:10px}
-.btn-primary{background:var(--a);color:#fff;font-weight:700;font-size:14px;padding:11px 20px;border-radius:5px;transition:background .2s,transform .2s,box-shadow .2s;display:inline-block;box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 24px -12px rgba(255,94,0,.6)}
+.btn-primary{background:var(--a);color:var(--bg);font-weight:700;font-size:14px;padding:11px 20px;border-radius:5px;transition:background .2s,transform .2s,box-shadow .2s;display:inline-block;box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 24px -12px rgba(255,94,0,.6)}
 .btn-primary:hover{background:#ff7325;transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,0.1) inset, 0 12px 28px -10px rgba(255,94,0,.7)}
 .btn-ghost{background:transparent;border:1px solid var(--b2);color:var(--t);font-weight:600;font-size:14px;padding:11px 18px;border-radius:5px;transition:all .2s;display:inline-block}
 .btn-ghost:hover{border-color:rgba(255,255,255,0.28);background:rgba(255,255,255,0.03)}
-.hero-cta .note{font-family:var(--mono);font-size:12px;color:var(--t3)}
+.hero-cta .note{font-family:var(--mono);font-size:12px;color:var(--t2)}
 @media (max-width:768px){
   .hero-bottom{grid-template-columns:1fr;gap:24px}
   .hero-cta{align-items:flex-start}
@@ -217,14 +218,14 @@ section.std{padding:80px 0;background:var(--bg)}
 .cta-buttons{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
 .cta .btn-primary{font-size:15px;padding:13px 28px}
 .cta .btn-ghost{font-size:14px;padding:12px 22px}
-.cta .footnote{margin-top:28px;font-size:13px;color:var(--t3)}
+.cta .footnote{margin-top:28px;font-size:13px;color:var(--t2)}
 .cta .footnote a{color:var(--t2);text-decoration:underline;text-underline-offset:3px}
 
 /* FOOTER */
 footer{border-top:1px solid var(--b);padding:36px 0}
 .foot{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
 .foot-c{display:flex;gap:24px;flex-wrap:wrap}
-.foot-c a{font-size:12px;color:var(--t3);transition:color .2s}
+.foot-c a{font-size:12px;color:var(--t2);transition:color .2s}
 .foot-c a:hover{color:var(--t2)}
 .foot-r{text-align:right;font-family:var(--mono);font-size:11px;color:var(--t4);line-height:1.6}
 .foot-r a{color:var(--t3);transition:color .2s;text-decoration:none}
@@ -452,12 +453,14 @@ function Index() {
       <header className="hero">
         <div className="hero-grid-bg" />
         <div className="wrap hero-top">
-          <h1 id="hero-h1" className="fade-up hero-fade">
-            Your idea,
+          <h1>
+            <span id="hero-h1" className="fade-up hero-fade">
+              Your idea,
+            </span>
+            <span id="hero-mom" className="mom fade-up hero-fade">
+              built in days.
+            </span>
           </h1>
-          <span id="hero-mom" className="mom fade-up hero-fade">
-            built in days.
-          </span>
           <p id="hero-philo" className="philo fade-up hero-fade">
             Founder-led, AI-native product building. Days or weeks — never quarters.
           </p>
