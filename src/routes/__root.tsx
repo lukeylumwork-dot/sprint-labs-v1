@@ -76,27 +76,24 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sprint Labs — AI-native product studio, London" },
+      { title: "Sprint Labs — New site coming soon" },
       {
         name: "description",
-        content:
-          "Sprint Labs is an AI-native product studio run by Luke. I help founders, startups, SMEs and product teams turn ideas into working products — in days or weeks, not quarters.",
+        content: "Sprint Labs is working on something new. Check back soon.",
       },
       { name: "author", content: "Sprint Labs" },
-      { property: "og:title", content: "Sprint Labs — AI-native product studio" },
+      { property: "og:title", content: "Sprint Labs — New site coming soon" },
       {
         property: "og:description",
-        content:
-          "Founder-led product building, powered by AI. Idea to working product in days or weeks, not quarters.",
+        content: "Sprint Labs is working on something new. Check back soon.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@sprintlabsUK" },
-      { name: "twitter:title", content: "Sprint Labs — AI-native product studio" },
+      { name: "twitter:title", content: "Sprint Labs — New site coming soon" },
       {
         name: "twitter:description",
-        content:
-          "Founder-led product building, powered by AI. Idea to working product in days or weeks, not quarters.",
+        content: "Sprint Labs is working on something new. Check back soon.",
       },
       { property: "og:url", content: "https://sprintlabs.uk" },
       {
