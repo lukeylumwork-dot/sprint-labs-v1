@@ -1,20 +1,21 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sprint Labs — New site coming soon" },
+      { title: "Sprint Labs · New site coming soon" },
       {
         name: "description",
         content: "Sprint Labs is working on something new. Check back soon.",
       },
-      { property: "og:title", content: "Sprint Labs — New site coming soon" },
+      { property: "og:title", content: "Sprint Labs · New site coming soon" },
       {
         property: "og:description",
         content: "Sprint Labs is working on something new. Check back soon.",
       },
     ],
     links: [
+      { rel: "canonical", href: "https://sprintlabs.uk" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
@@ -58,7 +59,8 @@ function Index() {
         </h1>
         <p>We're building something new. Check back shortly.</p>
         <div className="contact">
-          In the meantime, reach out at <a href="mailto:luke@sprintlabs.uk">luke@sprintlabs.uk</a>
+          In the meantime, take a look at <Link to="/work">recent client work</Link> or reach out at{" "}
+          <a href="mailto:luke@sprintlabs.uk">luke@sprintlabs.uk</a>
         </div>
       </div>
     </>
