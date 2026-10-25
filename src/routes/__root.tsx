@@ -76,13 +76,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sprint Labs — New site coming soon" },
+      { title: "Sprint Labs · New site coming soon" },
       {
         name: "description",
         content: "Sprint Labs is working on something new. Check back soon.",
       },
       { name: "author", content: "Sprint Labs" },
-      { property: "og:title", content: "Sprint Labs — New site coming soon" },
+      { property: "og:title", content: "Sprint Labs · New site coming soon" },
       {
         property: "og:description",
         content: "Sprint Labs is working on something new. Check back soon.",
@@ -90,7 +90,7 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@sprintlabsUK" },
-      { name: "twitter:title", content: "Sprint Labs — New site coming soon" },
+      { name: "twitter:title", content: "Sprint Labs · New site coming soon" },
       {
         name: "twitter:description",
         content: "Sprint Labs is working on something new. Check back soon.",
@@ -107,7 +107,6 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "canonical", href: "https://sprintlabs.uk" },
       {
         rel: "stylesheet",
         href: appCss,
