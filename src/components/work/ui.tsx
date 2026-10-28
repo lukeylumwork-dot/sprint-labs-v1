@@ -1,8 +1,16 @@
-import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+  type CSSProperties,
+} from "react";
+import { createPortal } from "react-dom";
 import type { Device, Metric, Phase, Project } from "./data";
 
 /** True once the element has scrolled into view (stays true). */
-export function useInView<T extends Element>(rootMargin = "0px 0px -12% 0px") {
+function useInView<T extends Element>(rootMargin = "0px 0px -12% 0px") {
   const ref = useRef<T>(null);
   const [seen, setSeen] = useState(false);
   useEffect(() => {
@@ -53,8 +61,7 @@ export function Reveal({
 
 function prefersReducedMotion() {
   return (
-    typeof window !== "undefined" &&
-    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
   );
 }
 
@@ -100,7 +107,7 @@ export function MetricValue({ m }: { m: Metric }) {
 /* Device frames. Mockups are designed on a fixed canvas and scaled.   */
 /* ------------------------------------------------------------------ */
 
-export const CANVAS: Record<Device, { w: number; h: number }> = {
+const CANVAS: Record<Device, { w: number; h: number }> = {
   browser: { w: 1280, h: 800 },
   tablet: { w: 1180, h: 820 },
   phone: { w: 390, h: 844 },
@@ -137,6 +144,77 @@ function ScaledCanvas({ device, children }: { device: Device; children: ReactNod
   );
 }
 
+/** Full-screen viewer so a preview can be explored at a readable size, even on a phone. */
+function Viewer({
+  device,
+  name,
+  onClose,
+  children,
+}: {
+  device: Device;
+  name: string;
+  onClose: () => void;
+  children: ReactNode;
+}) {
+  const { w, h } = CANVAS[device];
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const [scale, setScale] = useState(0);
+  useEffect(() => {
+    const measure = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      if (vw < 700) {
+        // Small screens: keep the app legible and let people pan around it.
+        const fit = (vw - 28) / w;
+        setScale(device === "phone" ? Math.min(1, fit) : Math.max(0.6, fit));
+      } else {
+        setScale(Math.min(1, (vw - 48) / w, (vh - 120) / h));
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const prevFocus = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+      prevFocus?.focus?.();
+    };
+  }, [w, h, device, onClose]);
+  return createPortal(
+    <div className="viewer" role="dialog" aria-modal="true" aria-label={`${name} preview`}>
+      <div className="viewer-bar">
+        <div className="viewer-title">
+          {name}
+          <span>Interactive preview</span>
+        </div>
+        <button ref={closeRef} type="button" className="viewer-close" onClick={onClose}>
+          Close ✕
+        </button>
+      </div>
+      <div className="viewer-hint">Drag to pan around the app</div>
+      <div className="viewer-body">
+        {scale > 0 && (
+          <div
+            className={`viewer-frame${device === "phone" ? " phone-frame" : ""}`}
+            style={{ width: w * scale, height: h * scale }}
+          >
+            <div style={{ width: w, height: h, transform: `scale(${scale})` }}>{children}</div>
+          </div>
+        )}
+      </div>
+    </div>,
+    document.body,
+  );
+}
+
 export function Stage({
   project,
   children,
@@ -145,41 +223,66 @@ export function Stage({
   children: ReactNode;
 }) {
   const { device, name } = project;
-  const hint = (
-    <div className="stage-hint" aria-hidden="true">
-      <span className="pulse" />
-      Interactive preview · click around
+  const [open, setOpen] = useState(false);
+  const close = useCallback(() => setOpen(false), []);
+  const top = (
+    <div className="stage-top">
+      <div className="stage-hint" aria-hidden="true">
+        <span className="pulse" />
+        Interactive preview · click around
+      </div>
+      <button type="button" className="expand-btn" onClick={() => setOpen(true)}>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+          />
+        </svg>
+        Expand
+      </button>
     </div>
   );
+  const viewer = open ? (
+    <Viewer device={device} name={name} onClose={close}>
+      {children}
+    </Viewer>
+  ) : null;
   if (device === "phone") {
     return (
       <figure className="stage stage-phone" aria-label={`Interactive preview of ${name}`}>
-        {hint}
+        {top}
         <div className="phone">
           <div className="phone-screen">
             <ScaledCanvas device="phone">{children}</ScaledCanvas>
             <div className="phone-island" aria-hidden="true" />
           </div>
         </div>
+        {viewer}
       </figure>
     );
   }
   if (device === "tablet") {
     return (
       <figure className="stage stage-tablet" aria-label={`Interactive preview of ${name}`}>
-        {hint}
+        {top}
         <div className="tablet">
           <div className="tablet-screen">
             <ScaledCanvas device="tablet">{children}</ScaledCanvas>
           </div>
         </div>
+        {viewer}
       </figure>
     );
   }
-  const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  const slug = name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
   return (
     <figure className="stage stage-browser" aria-label={`Interactive preview of ${name}`}>
-      {hint}
+      {top}
       <div className="browser">
         <div className="browser-bar" aria-hidden="true">
           <span className="dots">
@@ -189,7 +292,15 @@ export function Stage({
           </span>
           <span className="url">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="2.4" />
+              <rect
+                x="5"
+                y="11"
+                width="14"
+                height="10"
+                rx="2"
+                stroke="currentColor"
+                strokeWidth="2.4"
+              />
               <path d="M8 11V8a4 4 0 1 1 8 0v3" stroke="currentColor" strokeWidth="2.4" />
             </svg>
             {slug}.app
@@ -198,6 +309,7 @@ export function Stage({
         </div>
         <ScaledCanvas device="browser">{children}</ScaledCanvas>
       </div>
+      {viewer}
     </figure>
   );
 }

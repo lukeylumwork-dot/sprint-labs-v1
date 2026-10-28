@@ -28,7 +28,6 @@ export type Project = {
   kind: string;
   status: Status;
   device: Device;
-  layout: "feature" | "compact";
   headline: string;
   summary: string;
   before: { title: string; tools: string[]; pains: string[] };
@@ -65,7 +64,6 @@ export const CLIENTS: Client[] = [
         kind: "Operations platform",
         status: "Live",
         device: "browser",
-        layout: "feature",
         headline: "The whole mentor team, finally on one screen.",
         summary:
           "A production platform for the agency's mentor team. Every goalkeeper, every match report, every check-in and every duty-of-care flag, in one place with the right access for mentors, managers and admins. Live since August 2026.",
@@ -102,8 +100,18 @@ export const CLIENTS: Client[] = [
           "Built, migrated the roster and trained the mentors",
         ],
         timeline: [
-          { label: "Discover", detail: "Workshops and process mapping", days: 3, duration: "3 days" },
-          { label: "Prototype", detail: "Clickable, tested with mentors", days: 5, duration: "1 week" },
+          {
+            label: "Discover",
+            detail: "Workshops and process mapping",
+            days: 3,
+            duration: "3 days",
+          },
+          {
+            label: "Prototype",
+            detail: "Clickable, tested with mentors",
+            days: 5,
+            duration: "1 week",
+          },
           { label: "Build", detail: "Production app, roles, data", days: 15, duration: "3 weeks" },
           { label: "Launch", detail: "Migration and training", days: 2, duration: "2 days" },
         ],
@@ -124,7 +132,6 @@ export const CLIENTS: Client[] = [
         kind: "Scouting intelligence",
         status: "Live",
         device: "browser",
-        layout: "feature",
         headline: "What one scout learns, every scout can build on.",
         summary:
           "A goalkeeper scouting and recruitment platform. Profiles, assessments and match reports live in one shared intelligence database, so knowledge stops walking out of the door with whoever watched the game.",
@@ -159,8 +166,18 @@ export const CLIENTS: Client[] = [
           "Imported existing notes so nothing started from zero",
         ],
         timeline: [
-          { label: "Discover", detail: "Shadowed the scouting process", days: 2, duration: "2 days" },
-          { label: "Prototype", detail: "Profile and assessment flows", days: 4, duration: "4 days" },
+          {
+            label: "Discover",
+            detail: "Shadowed the scouting process",
+            days: 2,
+            duration: "2 days",
+          },
+          {
+            label: "Prototype",
+            detail: "Profile and assessment flows",
+            days: 4,
+            duration: "4 days",
+          },
           { label: "Build", detail: "Database, search, reports", days: 12, duration: "2.5 weeks" },
           { label: "Launch", detail: "Data import and onboarding", days: 2, duration: "2 days" },
         ],
@@ -181,7 +198,6 @@ export const CLIENTS: Client[] = [
         kind: "Finance dashboard",
         status: "In development",
         device: "browser",
-        layout: "compact",
         headline: "The agency's finances, readable at a glance.",
         summary:
           "A finance app for the leadership team: income, commissions and cash flow in one live view. It started as a prototype and is now being built for production.",
@@ -213,7 +229,7 @@ export const CLIENTS: Client[] = [
         metrics: [
           { display: "Quarterly → live", label: "How often leadership sees the numbers" },
           { value: 90, suffix: "%", label: "Less time reconciling commissions" },
-          { value: 4, suffix: " → 1", label: "Sources of truth" },
+          { display: "4 → 1", label: "Sources of truth" },
         ],
         stack: ["React", "TanStack Start", "Supabase"],
       },
@@ -224,14 +240,16 @@ export const CLIENTS: Client[] = [
         kind: "Mobile and iPad app",
         status: "In development",
         device: "tablet",
-        layout: "compact",
         headline: "Outfield recruitment, organised pitch-side.",
         summary:
           "A recruitment app built for phone and iPad, so scouts can log a player, a club contact or a match report from the stand instead of typing it up later.",
         before: {
           title: "Before",
           tools: ["Phone contacts", "Notes app", "Spreadsheet trackers", "Paper match notes"],
-          pains: ["Reports typed up hours after the game", "Club contacts stuck on one person's phone"],
+          pains: [
+            "Reports typed up hours after the game",
+            "Club contacts stuck on one person's phone",
+          ],
         },
         after: {
           title: "After",
@@ -267,7 +285,6 @@ export const CLIENTS: Client[] = [
         kind: "Consumer mobile app",
         status: "Prototype",
         device: "phone",
-        layout: "compact",
         headline: "Elite goalkeeper coaching, in a teenager's pocket.",
         summary:
           "A mobile app concept for aspiring goalkeepers: learning content from the pros, coach feedback on their own clips, and live group sessions.",
@@ -318,14 +335,17 @@ export const CLIENTS: Client[] = [
         kind: "Video portal",
         status: "Live",
         device: "browser",
-        layout: "feature",
         headline: "A video series for founders, on a home of its own.",
         summary:
           "An editorial video portal for founders and founding teams. Featured and latest episodes lead the homepage, with a gated Academy planned next.",
         before: {
           title: "Before",
           tools: ["YouTube only", "Social clips", "Link-in-bio page", "No email list"],
-          pains: ["No owned audience", "Episodes buried in an algorithm", "Nowhere to sell an Academy"],
+          pains: [
+            "No owned audience",
+            "Episodes buried in an algorithm",
+            "Nowhere to sell an Academy",
+          ],
         },
         after: {
           title: "After",
@@ -362,7 +382,6 @@ export const CLIENTS: Client[] = [
         kind: "Podcast site",
         status: "Live",
         device: "browser",
-        layout: "compact",
         headline: "A podcast built on evidence, not opinion. Now with a proper home.",
         summary:
           "The site for a podcast of short, structured debates. Each episode takes one question and looks at it from two perspectives in around fifteen minutes.",
@@ -402,4 +421,6 @@ export const CLIENTS: Client[] = [
   },
 ];
 
-export const ALL_PROJECTS = CLIENTS.flatMap((c) => c.projects.map((p) => ({ ...p, clientWho: c.who })));
+export const ALL_PROJECTS = CLIENTS.flatMap((c) =>
+  c.projects.map((p) => ({ ...p, clientWho: c.who })),
+);

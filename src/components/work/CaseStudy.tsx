@@ -37,7 +37,9 @@ export function CaseStudy({
           </span>
           {project.shipped}
         </span>
-        <span className="fact muted">For {clientWho.charAt(0).toLowerCase() + clientWho.slice(1)}</span>
+        <span className="fact muted">
+          For {clientWho.charAt(0).toLowerCase() + clientWho.slice(1)}
+        </span>
       </div>
     </Reveal>
   );
@@ -54,7 +56,8 @@ export function CaseStudy({
     </ul>
   );
 
-  if (project.layout === "compact") {
+  // Phone previews sit beside the story; browser and tablet previews run full width.
+  if (project.device === "phone") {
     return (
       <article
         id={project.id}
@@ -65,14 +68,12 @@ export function CaseStudy({
           {num}
         </div>
         <div className="cs-split">
-          <div className="cs-col">
-            {head}
-            <Reveal>
-              <BeforeAfter project={project} />
-            </Reveal>
-          </div>
+          <div className="cs-a-head">{head}</div>
           <Reveal className="cs-stagecol" delay={120}>
             {stage}
+          </Reveal>
+          <Reveal className="cs-a-ba">
+            <BeforeAfter project={project} />
           </Reveal>
         </div>
         <div className="cs-lower">

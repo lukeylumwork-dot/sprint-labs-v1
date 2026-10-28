@@ -38,10 +38,26 @@ const CTA_EMAIL = "mailto:luke@sprintlabs.uk?subject=Sprint%20Labs%20enquiry";
 const TOTAL = CLIENTS.reduce((n, c) => n + c.projects.length, 0);
 
 const SPRINT_STEPS = [
-  { when: "Day 1", what: "Discovery", detail: "One call to map how you work today and what's slowing you down." },
-  { when: "Days 2–5", what: "Clickable prototype", detail: "Something real to tap through, tested with your team, not a slide deck." },
-  { when: "Weeks 2–4", what: "Production build", detail: "The real thing on a modern stack, with your data and your roles." },
-  { when: "Launch", what: "Go live and hand over", detail: "Migration, training and a product your team actually uses." },
+  {
+    when: "Day 1",
+    what: "Discovery",
+    detail: "One call to map how you work today and what's slowing you down.",
+  },
+  {
+    when: "Days 2–5",
+    what: "Clickable prototype",
+    detail: "Something real to tap through, tested with your team, not a slide deck.",
+  },
+  {
+    when: "Weeks 2–4",
+    what: "Production build",
+    detail: "The real thing on a modern stack, with your data and your roles.",
+  },
+  {
+    when: "Launch",
+    what: "Go live and hand over",
+    detail: "Migration, training and a product your team actually uses.",
+  },
 ];
 
 function Work() {
@@ -90,9 +106,9 @@ function Work() {
             </Reveal>
             <Reveal delay={140}>
               <p className="hero-sub">
-                Real software for a top football agency and an entrepreneur. Every project below
-                has a working preview you can click through, plus how they worked before, what I
-                built, how fast it shipped and what changed.
+                Real software for a top football agency and an entrepreneur. Every project below has
+                a working preview you can click through, plus how they worked before, what I built,
+                how fast it shipped and what changed.
               </p>
             </Reveal>
             <Reveal delay={220} className="hero-stats">
